@@ -23,12 +23,12 @@ This is a relatively safe and low-cost component used in industry. It has a <2cm
 **Voltage Divider Circuit:**
 From the 10kV initial voltage, we need the following discrete voltage steps according to the electron column design:
 
-- -5000V
-- -5100V
-- -6500V
-- -7000V
-- 0V (ground)
-
+- 0V, or earth ground, routed to the anode, the walls, and the side electrodes in the einzel lenses
+- -5000V, routed to the cathode
+- -5100V, routed to the Wehnelt cap
+- -6500V, routed to the objective lens' middle electrode
+- -7000V, routed to the condenser lens' middle electrode
+  
 We can make a voltage divider circuit, as well as add safety features, before we rout the voltage to the einzel lenses, Wehnelt Cylinders, etc. We can actually make one series circuit such that it gives us all of these voltages from 10kV using precisely chosen values of resistors rated for at least 15kV, and at least one diodes for surge protection.
 
 
