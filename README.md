@@ -12,10 +12,15 @@ S1 is composed of four core modules:
 - Fully functional high-vacuum system.
 - Custom diffusion pump design and integration with COTC rotary vane pumps.
 - CAD files and instructions available at: [Diffusion Pump](https://github.com/rolypolytoy/diffusion_pump)
+- Image of CAD files:
+![View](https://github.com/user-attachments/assets/2c7445c5-50e3-48b4-bc69-a5a0268d8c9f)
 
 ### Electron Column
 - Simulated and finalized using the open-source electrodynamics package [Picht](https://github.com/rolypolytoy/picht/blob/main/examples/sem.py).
 - Includes a design for micron-level spot sizes using Wehnelt caps, an electrostatic objective lens, and an electrostatic condenser lens, using full relativistic accuracy and Lorentz force calculations.
+- Image of column design (visualized by Picht):
+![SEM](https://github.com/user-attachments/assets/8e4bc3db-832a-4892-869d-d16839526ebe)
+
 
 ### Detection, Control, and Embedded Systems
 A  low-cost Everhart-Thornley detector is under development:
