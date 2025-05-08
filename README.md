@@ -67,7 +67,7 @@ All [component datasheets](https://github.com/rolypolytoy/S1/tree/main/Detection
 
 | Milestone                            | Target Date |
 |-------------------------------------|-------------|
-| Vacuum and column design complete   | ✅ Q1 2025   |
+| Vacuum, column & ET-Detector design complete   | ✅ Q1 2025   |
 | **Release-ready version**           | 🟡 **Q2 2025** |
 ---
 
