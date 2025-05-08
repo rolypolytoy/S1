@@ -73,6 +73,12 @@ All [component datasheets](https://github.com/rolypolytoy/S1/tree/main/Detection
 | **Release-ready version**           | 🟡 **Q2 2025** |
 ---
 
+| Metric            | Target     | Achieved | Method                  |
+| ----------------- | ---------- | -------- | ----------------------- |
+| Beam Spot Size    | <750nm     | TBD      | Picht calculations, Pl-Ir 50 μm beam limiting aperture at crossover |
+| Vacuum Pressure   | <10⁻⁵ Torr | TBD      | 1e-8 vapor-pressure vacuum oil (Ultragrade 19) inside a HV diffusion pump      |
+| Resolution (real) | <1μm       | TBD      | Deconvolution and other advanced DSP methods      |
+
 ## Estimated Cost
 
 A preliminary bill of materials puts the total project cost at approximately $2200 USD, including:
