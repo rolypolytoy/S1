@@ -41,7 +41,7 @@ We also have a fully functional voltage divider to get from -10kV and 0V to: -7k
 
 ![circuit (6)](https://github.com/user-attachments/assets/aad040da-3408-4a23-998c-13119db33bba)
 
-And can be made with the cheaply available 1% tolerance multi-resistor kits while falling entirely within their power consumption limits.
+And can be made with the cheaply available 1% tolerance multi-resistor kits while falling entirely within their power consumption limits, as well as adds bleeder-resistor-safety natively by using multi-megaohm resistance values to limit currents to the microampere regime.
 
 
 ### Detection, Control, and Embedded Systems
