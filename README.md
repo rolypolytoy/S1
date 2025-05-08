@@ -4,6 +4,12 @@ S1 is an open-source, low-cost scanning electron microscope (SEM) project design
 
 Because Picht already supports ions, and because making [custom field-emission tips](https://link.springer.com/article/10.1007/s42452-020-3017-4) is an established process in the scientific open source community, the established hardware processes shown here can very easily be extended to FIB systems, or dual-beam systems with minimal overhead- a mild overhaul in voltages of the einzel lenses, recalculations using Picht, and new engineering for the liquid ion or gas ion source is all that's required, so this project is already building the foundations for an entire nanofabrication platform. You can, for example, for an FIB system, simply lift all the embedded systems hardware, ion column CAD files, and vacuum integrity modules. All you need to do is remove the ET detector and all the frills, replace the tungsten thermionic electrode with a Gallium LFIS or Helium GFIS source (not difficult to make in CAD) and remanufacture.
 
+| Metric            | Estimated     | Achieved | Method                  |
+| ----------------- | ---------- | -------- | ----------------------- |
+| Beam Spot Size    | <750nm     | TBD      | Picht calculations, Pt-Ir 50 μm beam limiting aperture at crossover |
+| Vacuum Pressure   | <10⁻⁵ Torr | TBD      | 1e-8 vapor-pressure vacuum oil (Ultragrade 19) inside a HV diffusion pump      |
+| Resolution (real) | <1μm       | TBD      | Deconvolution and other advanced DSP methods      |
+
 ---
 
 ## System Overview
@@ -71,13 +77,6 @@ All [component datasheets](https://github.com/rolypolytoy/S1/tree/main/Detection
 |-------------------------------------|-------------|
 | Vacuum, column & ET-Detector design complete   | ✅ Q1 2025   |
 | **Release-ready version**           | 🟡 **Q2 2025** |
-
-| Metric            | Target     | Achieved | Method                  |
-| ----------------- | ---------- | -------- | ----------------------- |
-| Beam Spot Size    | <750nm     | TBD      | Picht calculations, Pt-Ir 50 μm beam limiting aperture at crossover |
-| Vacuum Pressure   | <10⁻⁵ Torr | TBD      | 1e-8 vapor-pressure vacuum oil (Ultragrade 19) inside a HV diffusion pump      |
-| Resolution (real) | <1μm       | TBD      | Deconvolution and other advanced DSP methods      |
-
 ---
 
 ## Estimated Cost
