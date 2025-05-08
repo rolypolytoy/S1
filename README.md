@@ -112,7 +112,6 @@ The main cost-savers were making a custom diffusion pump design rather than lift
 ## Checklist of What Remains
 Here's what I still need to implement:
 
-- Circuit diagrams for all electrically active component including the electron column and all embedded systems and embedded-adjacent materials.
 - Functioning code for the microcontroller to run on, and a companion desktop app that integrates with any OS (I don't want a repeat of the "we keep this terminal on Windows 97" that's common in SEM labs)
 - CAD and Assembly files for the mechanical portions
 - Assembly and proof of functionality.
