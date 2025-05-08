@@ -40,7 +40,7 @@ A  low-cost detector system is under development:
   - The [AD5754BREZ](https://www.mouser.in/ProductDetail/Analog-Devices/AD5754BREZ?qs=NmRFExCfTkE9WVZYrblgWQ%3D%3D)- a ±10V, 16-bit DAC for analog control  
   - Electrostatic deflection plates for beam movement and magnification
 
-All component datasheets and the full bill of materials are included in this repository.
+All [component datasheets](https://github.com/rolypolytoy/S1/tree/main/Detection%20%26%20Control) and the full [bill of materials](https://github.com/rolypolytoy/S1/blob/main/Bill%20of%20Materials.docx) are included in this repository.
 
 ### Frame, Stage, and CAD
 - In progress.
