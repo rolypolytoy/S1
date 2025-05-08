@@ -25,10 +25,10 @@ From the 10kV initial voltage, we need the following discrete voltage steps acco
 
 - -5000V
 - -5100V
-- -7000V
 - -6500V
+- -7000V
 - 0V (ground)
 
-We can make a voltage divider circuit, as well as add safety features, before we rout the voltage to the einzel lenses, Wehnelt Cylinders, etc.
+We can make a voltage divider circuit, as well as add safety features, before we rout the voltage to the einzel lenses, Wehnelt Cylinders, etc. We can actually make one series circuit such that it gives us all of these voltages from 10kV using precisely chosen values of resistors rated for at least 15kV, and at least one diodes for surge protection.
 
 
