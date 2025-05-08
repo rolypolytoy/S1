@@ -42,3 +42,5 @@ Wire it such that the arrangement is -10kV terminal -> 15 MOhm -> 2.5 MOhm -> 7 
 
 Again- ensure you use proper practices for the 10kV rated wiring (which is the only wiring you should be using here), tape-insulate EVERYTHING, and make the diagram as follows. We now have distinct voltages for -7kV, -6.5kV, -5.1kV, -5kV, and 0V, all of which are exactly the reference voltages required to make the beam column design as shown in the simulations.
 
+## Column Design
+
