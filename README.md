@@ -7,11 +7,11 @@ The main four modules that are being designed are:
 
 **Vacuum Integrity:** Finished. Diffusion Pump design and rotary vane pump are fully obtainable, with more complete instructions at https://github.com/rolypolytoy/diffusion_pump.
 
-**Electron Column:** Underway, with the bulk complete. Only the CAD portion of this remains, with the actual design of an SEM column completed at and with the help of Picht (https://github.com/rolypolytoy/picht/blob/main/examples/sem.py).
+**Electron Column:** Finished. The actual design of an SEM column is completed at and with the help of Picht (https://github.com/rolypolytoy/picht/blob/main/examples/sem.py).
 
-**Detection & Control:** Underway.
+**Detection, Control and Embedded:** Underway.
 
-**Frame and Stage:** Underway.
+**Frame, Stage and CAD:** Underway.
 
 ## Assembly
 Upcoming.
