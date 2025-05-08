@@ -4,6 +4,7 @@ A project working on building upon Applied Science's DIY SEM (https://www.youtub
 ## Design
 
 The main four modules that are being designed are:
+
 **Vacuum Integrity:** Finished. Diffusion Pump design and rotary vane pump are fully obtainable, with more complete instructions at https://github.com/rolypolytoy/diffusion_pump.
 
 **Electron Column:** Underway, with the bulk complete. Only the CAD portion of this remains, with the actual design of an SEM column completed at and with the help of Picht (https://github.com/rolypolytoy/picht).
