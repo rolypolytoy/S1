@@ -16,9 +16,9 @@ S1 is composed of four core modules:
 ![View](https://github.com/user-attachments/assets/2c7445c5-50e3-48b4-bc69-a5a0268d8c9f)
 
 ### Electron Column
-- Simulated and finalized using the open-source electrodynamics package [Picht](https://github.com/rolypolytoy/picht/blob/main/examples/sem.py).
+- Simulated and finalized using the open-source electrodynamics package [Picht](https://github.com/rolypolytoy/picht/blob/main/examples/sem.py) (which I made!).
 - Includes a design for micron-level spot sizes using Wehnelt caps, an electrostatic objective lens, and an electrostatic condenser lens, using full relativistic accuracy and Lorentz force calculations.
-- Image of electrons inside the column design (visualized by Picht, a library I made):
+- Image of electrons inside the column design (visualized by Picht):
 ![SEM](https://github.com/user-attachments/assets/8e4bc3db-832a-4892-869d-d16839526ebe)
 
 You can vividly see how the condenser lens converges the diverging beam, and the objective lens produces a focal point ~8 mm beyond its end.
