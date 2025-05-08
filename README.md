@@ -1,5 +1,7 @@
 # S1 Desktop SEM
-A project working on building upon Applied Science's DIY SEM (https://www.youtube.com/watch?v=VdjYVF4a6iU&t=467s) to produce a low-cost, reproducible, accurate Desktop SEM using formal engineering practices, computational physics, and a workflow with the rigor of scientific instrumentation without the cost.
+S1 is an open-source, low-cost scanning electron microscope (SEM) project that builds upon DIY efforts with formal engineering principles. It aims to create a reproducible, scientifically accurate SEM that costs under $2500 USD—making nanoscale imaging accessible to researchers, hobbyists, and educators.
+
+It builds upon Applied Science's DIY SEM (https://www.youtube.com/watch?v=VdjYVF4a6iU&t=467s) to produce a low-cost, reproducible, accurate Desktop SEM using formal engineering practices, computational physics, and a workflow with the rigor of scientific instrumentation without the cost.
 
 ## Design
 
