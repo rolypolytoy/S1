@@ -5,7 +5,10 @@ Ted Pella provides precise beam emission characteristics for its W thermionic fi
 
 We'll use this initially to profile low-ev electrons boiling off at 2800 K using the Picht software package, and create a full electrostatic lens design using:
 
--100V biased Wehnelt Cylinders.
+- -100V biased Wehnelt Cylinder.
+- A Tungsten Thermionic source of a 60 micrometers cathode radius, and 15 micrometers beam emittance spot
+- A 5kV accelerating voltage
+- 7kV and 6.5kV condenser and objective lenses with proper fringing accounted for
 
 An electrostatic condenser lens, and an electrostatic objective lens- we're building off the Applied Science SEM proof-of-concept (https://www.youtube.com/watch?v=VdjYVF4a6iU&t=467s) which already uses electrostatic lenses, but we use much higher voltages, and einzel lenses instead of cylindrical lenses, and simulate the column in its entirety.
 
