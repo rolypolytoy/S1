@@ -18,7 +18,7 @@ S1 is composed of four core modules:
 - Includes a design for micron-level spot sizes using Wehnelt caps, an electrostatic objective lens, and an electrostatic condenser lens, using full relativistic accuracy and Lorentz force calculations.
 
 ### Detection, Control, and Embedded Systems
-A  low-cost detector system is under development:
+A  low-cost Everhart-Thornley detector is under development:
 
 - **Microcontroller**:  
   - [Teensy 4.1](https://www.amazon.in/4-1-iMXRT1062-Development-soldered-Pre-soldered/dp/B0DP6M197Q) (no electrolytic capacitors, which make it safe for vacuum pressures)
