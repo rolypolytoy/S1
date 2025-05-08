@@ -11,7 +11,7 @@ S1 is composed of four core modules:
 ### Vacuum Integrity
 - Fully functional high-vacuum system.
 - Custom diffusion pump design and integration with COTC rotary vane pumps.
-- CAD files and instructions available at: [Diffusion Pump GitHub Repo](https://github.com/rolypolytoy/diffusion_pump)
+- CAD files and instructions available at: [Diffusion Pump](https://github.com/rolypolytoy/diffusion_pump)
 
 ### Electron Column
 - Simulated and finalized using the open-source electrodynamics package [Picht](https://github.com/rolypolytoy/picht/blob/main/examples/sem.py).
