@@ -10,3 +10,4 @@ Finally- FCStd files for the Diffusion Pump are uploaded here and at https://git
 
 For the o-ring, buy 130 mm ID, 2 mm thickness O-rings to seal the flange between the diffusion pump and the connector to the vacuum pump. Nitrile should work fine, for example at https://www.amazon.com/uxcell-Rings-Nitrile-125-2mm-Diameter/dp/B07HGCCHNZ.
 
+The holes on the side of the flanges are around 6.4 mm in diameter, so use 8 M6 to tighten, once the O-ring is inside the groove, and the connector has been welded to the frame. 
