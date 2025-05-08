@@ -16,10 +16,9 @@ Because Picht already supports ions, and because making [custom field-emission t
 
 S1 is composed of four core modules:
 
-### Vacuum Integrity
+### [Vacuum Integrity](https://github.com/rolypolytoy/diffusion_pump)
 - Fully functional high-vacuum system.
 - Custom diffusion pump design and integration with COTC rotary vane pumps.
-- CAD files and instructions available at: [Diffusion Pump](https://github.com/rolypolytoy/diffusion_pump)
 - Image of CAD files:
   
 ![View](https://github.com/user-attachments/assets/2c7445c5-50e3-48b4-bc69-a5a0268d8c9f)
