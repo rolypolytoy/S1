@@ -28,7 +28,7 @@ I also used picht to identify that the demagnification between the first and sec
 
 
 ### Detection, Control, and Embedded Systems
-A  low-cost Everhart-Thornley detector is under development:
+A  low-cost Everhart-Thornley detector is outlined below:
 
 - **Microcontroller**:  
   - [Teensy 4.1](https://www.amazon.in/4-1-iMXRT1062-Development-soldered-Pre-soldered/dp/B0DP6M197Q) (no electrolytic capacitors, which make it safe for vacuum pressures)
