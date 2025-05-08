@@ -12,8 +12,6 @@ An electrostatic condenser lens, and an electrostatic objective lens- we're buil
 
 The full parameters of the beam simulation can be found at [Picht](https://github.com/rolypolytoy/picht/blob/main/examples/sem.py), but to summarize we've found a system which enables micron-level spot size, with 67x demagnification between the first crossover and the focal point which is ~8mm downstream of the final einzel lens. If we buy a 200 micrometers [beam limiting aperture](https://www.tedpella.com/apertures-and-filaments_html/aperture3.aspx) (for only $99 USD!!!), we can get 200/67 = 3 micrometers of a spot size, which is tremendous for a DIY system. Whether we actually get this degree of resolution on a DIY system remains to be seen, but counterintuitively we might be able to push it below micrometer-resolution with DSP techniques like deconvolution and frame-averaging- if we have a good enough raster scanner.
 
-For power supplies I'll use an electrostatic power supply rated for 10kV (https://ar.aliexpress.com/item/1005003518403820.html) with voltage dividers and 15 kV rated silicone-jacket wiring, similarly rated diodes, and vet all designs through electrical engineers before production.
-
 The full CAD design of the electron column post-design is incoming, but all the geometric data's fully available in the design, which already accounts for being inside an enclosed vacuum chamber due to its Dirichlet boundary conditions.
 
 ## Power Electronics
