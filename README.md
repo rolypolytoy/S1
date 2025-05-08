@@ -75,7 +75,7 @@ All [component datasheets](https://github.com/rolypolytoy/S1/tree/main/Detection
 
 | Metric            | Target     | Achieved | Method                  |
 | ----------------- | ---------- | -------- | ----------------------- |
-| Beam Spot Size    | <750nm     | TBD      | Picht calculations, Pl-Ir 50 μm beam limiting aperture at crossover |
+| Beam Spot Size    | <750nm     | TBD      | Picht calculations, Pt-Ir 50 μm beam limiting aperture at crossover |
 | Vacuum Pressure   | <10⁻⁵ Torr | TBD      | 1e-8 vapor-pressure vacuum oil (Ultragrade 19) inside a HV diffusion pump      |
 | Resolution (real) | <1μm       | TBD      | Deconvolution and other advanced DSP methods      |
 
