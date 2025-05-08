@@ -14,5 +14,5 @@ The main four modules that are being designed are:
 **Frame, Stage and CAD:** Underway.
 
 ## Assembly
-Upcoming.
+Upcoming. A preliminary bill of materials, with an estimated cost of around $2200 USD is shown.
 
