@@ -65,12 +65,16 @@ All [component datasheets](https://github.com/rolypolytoy/S1/tree/main/Detection
 ### Frame, Stage, and CAD
 - In progress.
 - Parametric CAD models underway for:
-  - Mechanical frame
-  - Sliding vacuum doors
-  - Cable feedthroughs
-  - Stage platform
+  - **Mechanical frame**:
+    - The assembly is really just going to be a few 15 mm-thick 6063 plates screwed together in HV-safe methods. Full assembly instructions for this coming soon.
+  - **Sliding vacuum doors**:
+    - We plan to use dovetail doors and use a line of Viton at the base + a clamp to make a secure, cheap, and professional HV sliding door. CAD files for this coming soon.
+  - **Cable feedthroughs**:
+    -   Our current approach to making flanges is to, when the frame is being machined, make precise holes in the exterior, pass silicone wires through, and use vacuum-tolerant epoxy. This is expensive, but believe it or not, significantly less expensive than buying feedthroughs for 230VAC, 24VDC, USB, etc, etc. We use [Loctite Stycast-2850](https://in.rsdelivers.com/product/loctite/loctite-stycast-2850-ft-quartkit/loctite-loctite-stycast-2850-ft-quartkit-black-1/2349630)- a state of the art vacuum epoxy, which means this "makeshift" setup is actually more than satisfactory for HV, and really only gets iffy when you get down to UHV. Additionally- silicone doesn't outgas a lot, so using silicone-insulated wires isn't a no-no, but even if it is, taping over it with PTFE tape is an extremely easy (and cheap) workaround which doesn't compromise anything, or introduce any irregularities into the system.
+  - **Stage platform**:
+    - We use a cheap but micron-level accuracy by buying 3 instances of these [1-axis CNC stepper motor setups with 50 mm stroke length](https://ar.aliexpress.com/item/1005007308081154.html), combining it with three instances of the legendary [TM2209 motor driver](https://www.amazon.in/TESSERACT-TMC2209-V2-0-Ultra-Silent-Motherboard/dp/B08QPLL28G) which has 1/256 microstepping, which means we get micron-level resolution in XYZ. This is particularly important for beam clarity because this means we can use autofocus and vary the z-axis, instead of needing to vary the voltage to the objective lens, which makes our power electronics considerably simpler because we can just use static voltage dividers for all our high-voltage components and implement autofocus by modifying the z-axis and checking if the image is in-focus or out of focus.
   - Mounting hardware
-
+ 
 ---
 
 ## Development Timeline
