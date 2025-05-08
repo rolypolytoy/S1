@@ -14,3 +14,12 @@ The full parameters of the beam simulation can be found at https://github.com/ro
 For power supplies I'll use an electrostatic power supply rated for 10kV (https://ar.aliexpress.com/item/1005003518403820.html) with voltage dividers and 15 kV rated silicone-jacket wiring, similarly rated diodes, and vet all designs through electrical engineers before production.
 
 The full CAD design of the electron column post-design is incoming, but all the geometric data's fully available in the design, which already accounts for being inside an enclosed vacuum chamber due to its Dirichlet boundary conditions.
+
+## Power Electronics
+
+First, we use a:
+
+**[230 VAC to 10kV converter](https://ar.aliexpress.com/item/1005003518403820.html)**
+This is a relatively safe and low-cost component used in industry often. It has a <2cm discharge distance due to its plastic protection, so we'll keep a 4cm distance for a safety factor of >2X. It's intended to connect with mains, so we'll use a [mains relay](https://www.amazon.in/CLUB-BOLLYWOOD-Channel-Optocoupler-Insulation/dp/B0C2PT1KRB) to enable PWM-pin controlled switching of the mains voltage that powers the 10kV power source, as well as [heat shrink tubes](https://www.amazon.in/Rpi-shop-Polyolefin-Insulated-Multicolour/dp/B08S3TP2Q6) and [mains-rated wiring](https://www.amazon.in/TWC-Lite-Single-Black-Electrical/dp/B0B7GG46KJ) for the pre-AC-to-DC stage. We'll also use [10kV rated wire](https://ar.aliexpress.com/item/1005001839936748.html?gatewayAdapt=glo2ara) and keep >2x safety factors in terms of discharge distance from these, post-DC amplification, as well as [69kV-rated electrical tape](https://www.amazon.in/3M-70-Self-Fusing-Silicone-Electrical/dp/B0029Z5RSY) (multiple applications at critical places) at junctions.
+
+
