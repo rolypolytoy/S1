@@ -30,7 +30,7 @@ From the 10kV initial voltage, we need the following discrete voltage steps acco
 - -6500V, routed to the objective lens' middle electrode
 - -7000V, routed to the condenser lens' middle electrode
   
-We can make a voltage divider circuit, as well as add safety features, before we rout the voltage to the einzel lenses, Wehnelt Cylinders, etc. We can actually make one series circuit such that it gives us all of these voltages from 10kV using precisely chosen values of resistors rated for at least 15kV and 50W, and at least one diode for surge protection. We need to make sure to properly tape the 3M electrical around all the resistors and the active to ensure absolutely no discharge happens, but though we've accounted for safe practices, we need to obtain the resistors and make a valid diagram for it.
+We can make a voltage divider circuit, as well as add safety features, before we rout the voltage to the einzel lenses, Wehnelt Cylinders, etc. We can actually make one series circuit such that it gives us all of these voltages from 10kV using precisely chosen values of resistors rated for at least 15kV, and at least one diode for surge protection. We need to make sure to properly tape the 3M electrical around all the resistors and the active to ensure absolutely no discharge happens, but though we've accounted for safe practices, we need to obtain the resistors and make a valid diagram for it.
 
 In other words, from -10kV we need to first subtract 3000V, then 500V, then 1400V, then 100V, then 5000V, and so we need these ratios in Ohms from 15kV-rated resistors. We need 30:5:14:10:50 ratio resistors, in other words.
 
