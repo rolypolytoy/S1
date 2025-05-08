@@ -83,8 +83,3 @@ Unlike other DIY SEMs, S1 is:
 - Built with modular, reproducible hardware rather than eBay-lifted used parts, or exclusive enterprise hardware. This enables reproducibility, performance, and low cost, a difficult trifecta to nail for both DIY-ers and commercial vendors.
 - Fully documented with CAD, BOMs, control logic, and code.
 - Designed for educational and research-grade applications.
-
----
-
-_This is a work-in-progress. Contributions, feedback, and collaborations are welcome._
-
