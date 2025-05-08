@@ -90,6 +90,6 @@ The main cost-savers were making a custom diffusion pump design rather than lift
 Unlike other DIY SEMs, S1 is:
 
 - Based on first-principles simulations (via Picht), which is a standard step in industrial prototyping and experimental physics research.
-- Built with modular, reproducible hardware rather than eBay-lifted used parts, or exclusive enterprise hardware. This enables reproducibility, performance, and low cost, a difficult trifecta to nail for both DIY-ers and commercial vendors.
+- Built with reproducible hardware rather than eBay-lifted parts, or exclusive enterprise hardware. This enables reproducibility, performance, and low cost, a difficult trifecta to nail for both DIY-ers and commercial vendors.
 - Fully documented with CAD, BOMs, control logic, and code.
-- Designed for educational and research-grade applications.
+- Designed for educational and research-grade applications rather than seeing whether a DIY SEM can be made, which is a question that's already been answered.
