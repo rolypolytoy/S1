@@ -4,7 +4,7 @@
 
 ---
 
-## 🔧 System Overview
+## System Overview
 
 S1 is composed of four core modules:
 
