@@ -41,7 +41,7 @@ I also used picht to identify that the demagnification between the first and sec
 A  low-cost Everhart-Thornley detector is outlined below:
 
 - **Microcontroller**:  
-  - [Teensy 4.1](https://www.amazon.in/4-1-iMXRT1062-Development-soldered-Pre-soldered/dp/B0DP6M197Q) (no electrolytic capacitors, which make it safe for vacuum pressures)
+  - [Teensy 4.1](https://www.amazon.in/4-1-iMXRT1062-Development-soldered-Pre-soldered/dp/B0DP6M197Q) (no electrolytic capacitors, which make it safe for vacuum pressures due to no outgassing or capacitor ruptures)
   - Adequate computing power for onboard signal processing, like frame averaging or deconvolution.
   - Works with the Arduino framework which makes coding for it a lot easier.
 
