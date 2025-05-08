@@ -97,4 +97,5 @@ Wire it such that the arrangement is -10kV terminal -> 15 MOhm -> 2.5 MOhm -> 7 
 	<ellipse cx="140" cy="320" rx="2" ry="2" style="fill-opacity:1;fill:rgb(0, 0, 0);stroke:rgb(0, 0, 0);stroke-width:2" />
 </svg>
 
+This is pretty good.
 
