@@ -1,6 +1,6 @@
 # S1 Desktop SEM
 
-**S1** is an open-source, low-cost scanning electron microscope (SEM) project designed to bring formal engineering rigor and scientific accuracy to the DIY SEM space. Inspired by [Applied Science's DIY SEM](https://www.youtube.com/watch?v=VdjYVF4a6iU&t=467s), S1 aims to create a reproducible, scientifically valid, and affordable SEM for under **$2200 USD**, to make nanocharacterization accessible to audiences that weren't able to before.
+**S1** is an open-source, low-cost scanning electron microscope (SEM) project designed to bring formal engineering rigor and scientific accuracy to the DIY SEM space. Inspired by [Applied Science's DIY SEM](https://www.youtube.com/watch?v=VdjYVF4a6iU&t=467s), S1 aims to create a reproducible, scientifically valid, and affordable SEM for under $2200 USD, to make nanocharacterization accessible to audiences that weren't able to before.
 
 ---
 
@@ -63,13 +63,15 @@ All [component datasheets](https://github.com/rolypolytoy/S1/tree/main/Detection
 
 ## Estimated Cost
 
-A preliminary bill of materials puts the total project cost at approximately **$2200 USD**, including:
+A preliminary bill of materials puts the total project cost at approximately $2200 USD, including:
 
 - High vacuum components
 - Beam optics
 - Detector electronics
 - Embedded control system
 - Mechanical frame and assembly
+
+The main cost-savers were making a custom diffusion pump design rather than lifting turbomol pumps from eBay- which also does wonders for reproducibility- as well as using electrostatic lenses rather than electromagnetic lenses, using tungsten thermionic sources, and perhaps most importantly using silicon photomultipliers instead of vacuum-tube photomultipliers. Each one of these changes reduces hundreds, thousands, or tens of thousands of dollars in unit costs using technological advances, without even compromising on performance.
 
 ---
 
