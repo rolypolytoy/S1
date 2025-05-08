@@ -26,12 +26,12 @@ A  low-cost detector system is under development:
   - Works with the Arduino framework which makes coding for it a lot easier.
 
 - **Detector**:  
-  - Plastic scintillator with 425 nm emission (AliExpress)
-  - Onsemi SiPM with 420 nm peak sensitivity (perfect match)
+  - [Plastic scintillator with 425 nm emission](https://www.alibaba.com/product-detail/Polystyrene-Plastic-scintillator-material-equivalent-EJ_1601298622046.html?spm=a2700.7724857.0.0.6c196c9eovIgdM)
+  - [Onsemi SiPM with 420 nm peak sensitivity](https://www.mouser.in/ProductDetail/onsemi/MICROFC-30020-SMT-TR1?qs=byeeYqUIh0PslEkIwO7UpQ%3D%3D)
 
 - **Amplification & Shaping**:  
-  - **Cremat CR-110** charge-sensitive preamplifier (µs-long pulses, 7 ns rise time) to read current from the silicon photomultiplier  
-  - **Cremat CR-200-500ns** pulse shaper (500 ns pulses) so the ADC can read from it
+  - **[Cremat CR-110](https://www.amazon.ae/CR-113-R2-1-Charge-Sensitive-preamplifier-Module/dp/B07BCQSBD8)** charge-sensitive preamplifier (µs-long pulses, 7 ns rise time) to read current from the silicon photomultiplier  
+  - **[Cremat CR-200-500ns](https://www.amazon.ae/Cremat-Inc-CR-200-500ns-R2-1-Shaping-Amplifier/dp/B07BD28Y7R?)** pulse shaper (500 ns pulses) so the ADC can read from it
 
 - **Data Acquisition**:  
   - 10 MSPS ADC (exceeds the 2 MSPS requirement for 500 ns pulses)
