@@ -1,6 +1,6 @@
 # S1 Desktop SEM
 
-S1 is an open-source, low-cost scanning electron microscope (SEM) project designed to bring formal engineering rigor and scientific accuracy to the DIY SEM space. Inspired by [Applied Science's DIY SEM](https://www.youtube.com/watch?v=VdjYVF4a6iU&t=467s), S1 aims to create a reproducible, scientifically valid, and affordable SEM for under $2200 USD, to make nanocharacterization accessible to audiences that weren't able to before. Current finite difference method calculations estimate a 740 nm beam spot size with off-the-shelf components, with potentially sub-500nm resolution when combining DSP methods like deconvolution, frame averaging, and good practices during raster scanning.
+S1 is an open-source, low-cost scanning electron microscope (SEM) project designed to bring formal engineering rigor and scientific accuracy to the DIY SEM space. Inspired by [Applied Science's DIY SEM](https://www.youtube.com/watch?v=VdjYVF4a6iU&t=467s), S1 aims to create a reproducible, scientifically valid, and affordable SEM for under $2200 USD, to make nanocharacterization accessible to audiences that weren't able to before. Current finite difference method calculations estimate a 740 nm beam spot size with off-the-shelf components, with sub-500nm resolution as an entirely possible goal when combining DSP methods like deconvolution, frame averaging, and good practices during raster scanning.
 
 ---
 
