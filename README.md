@@ -21,6 +21,7 @@ S1 is composed of four core modules:
 - Custom diffusion pump design and integration with COTC rotary vane pumps.
 - CAD files and instructions available at: [Diffusion Pump](https://github.com/rolypolytoy/diffusion_pump)
 - Image of CAD files:
+  
 ![View](https://github.com/user-attachments/assets/2c7445c5-50e3-48b4-bc69-a5a0268d8c9f)
 
 The C-bend in the flange is in the stead of an optical baffle- the oil vapors will condense inside the pipe rather than go inside the chamber. This is a minor risk and it's not often mitigated in prototype designs, but I've mitigated it by adding it into the piping rather than an entirely separate component.
