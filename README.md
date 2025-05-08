@@ -21,7 +21,7 @@ S1 is composed of four core modules:
 A  low-cost detector system is under development:
 
 - **Microcontroller**:  
-  - Teensy 4.1 (no electrolytic capacitors, which make it safe for vacuum pressures)
+  - [Teensy 4.1](https://www.amazon.in/4-1-iMXRT1062-Development-soldered-Pre-soldered/dp/B0DP6M197Q) (no electrolytic capacitors, which make it safe for vacuum pressures)
   - Adequate computing power for onboard signal processing, like frame averaging or deconvolution.
   - Works with the Arduino framework which makes coding for it a lot easier.
 
@@ -34,10 +34,10 @@ A  low-cost detector system is under development:
   - **[Cremat CR-200-500ns](https://www.amazon.ae/Cremat-Inc-CR-200-500ns-R2-1-Shaping-Amplifier/dp/B07BD28Y7R?)** pulse shaper (500 ns pulses) so the ADC can read from it
 
 - **Data Acquisition**:  
-  - 10 MSPS ADC (exceeds the 2 MSPS requirement for 500 ns pulses)
+  - The [AD7626BCPZ](https://www.mouser.in/ProductDetail/Analog-Devices/AD7626BCPZ-RL7?qs=%2FtpEQrCGXCwjx1S0Wpoj8A%3D%3D)- a 10 MSPS ADC (exceeds the 2 MSPS requirement for 500 ns pulses)
 
 - **Raster Scanning**:  
-  - ±10V, 16-bit DAC for analog control  
+  - The [AD5754BREZ](https://www.mouser.in/ProductDetail/Analog-Devices/AD5754BREZ?qs=NmRFExCfTkE9WVZYrblgWQ%3D%3D)- a ±10V, 16-bit DAC for analog control  
   - Electrostatic deflection plates for beam movement and magnification
 
 All component datasheets and the full bill of materials are included in this repository.
