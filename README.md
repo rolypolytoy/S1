@@ -7,7 +7,7 @@ Because Picht already supports ions, and because making [custom field-emission t
 | Metric            | Estimated     | Achieved | Method                  |
 | ----------------- | ---------- | -------- | ----------------------- |
 | Beam Spot Size    | <750nm     | TBD      | Picht calculations, Pt-Ir 50 μm beam limiting aperture at crossover |
-| Vacuum Pressure   | <10⁻⁵ Torr | TBD      | 1e-8 vapor-pressure vacuum oil (Ultragrade 19) inside a HV diffusion pump      |
+| Vacuum Pressure   | <10⁻⁵ Torr | TBD      | 1e-8 torr vapor-pressure vacuum oil (Ultragrade 19), HV Diffusion Pump      |
 | Resolution (real) | <1μm       | TBD      | Deconvolution and other advanced DSP methods      |
 
 ---
