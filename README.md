@@ -1,24 +1,88 @@
 # S1 Desktop SEM
-S1 is an open-source, low-cost scanning electron microscope (SEM) project that builds upon DIY efforts with formal engineering principles. It aims to create a reproducible, scientifically accurate SEM that costs under $2500 USD—making nanoscale imaging accessible to researchers, hobbyists, and educators.
 
-It builds upon Applied Science's DIY SEM (https://www.youtube.com/watch?v=VdjYVF4a6iU&t=467s) to produce a low-cost, reproducible, accurate Desktop SEM using formal engineering practices, computational physics, and a workflow with the rigor of scientific instrumentation without the cost.
+**S1** is an open-source, low-cost scanning electron microscope (SEM) project designed to bring formal engineering rigor and scientific accuracy to the DIY SEM space. Inspired by [Applied Science's DIY SEM](https://www.youtube.com/watch?v=VdjYVF4a6iU&t=467s), S1 aims to create a reproducible, scientifically valid, and affordable SEM for under **$2200 USD**—making nanoscale imaging accessible to researchers, educators, and advanced hobbyists.
 
-## Design
+---
 
-The main four modules that are being designed are:
+## 🔧 System Overview
 
-**Vacuum Integrity:** Complete. Diffusion Pump design and rotary vane pump are fully obtainable, with more complete instructions at https://github.com/rolypolytoy/diffusion_pump.
+S1 is composed of four core modules:
 
-**Electron Column:** Complete. The actual design of an SEM column is completed at and with the help of Picht (https://github.com/rolypolytoy/picht/blob/main/examples/sem.py).
+### Vacuum Integrity
+- Fully functional high-vacuum system.
+- Custom diffusion pump design and integration with COTC rotary vane pumps.
+- CAD files and instructions available at: [Diffusion Pump GitHub Repo](https://github.com/rolypolytoy/diffusion_pump)
 
-**Detection, Control and Embedded:** In progress. Datasheets for all components are in the folder. The broad, top-level design is this:
-Teensy 4.1 as the MCU. The Teensy 4.1 has no electrolytic capacitors and it's powerful enough for image processing which makes it really good for using in vacuum conditions. Electrolytic capacitors tend to burst under vacuum so the fact that Teensies use only ceramic capacitors is a must-have.
-A DIY Everhart-Thornley detector, made by plastic scintillator parts that excite at 425 nm from AliExpress, combined with a onsemi low-noise silicon photomultiplier for single-digit dollars instead of thousands of dollars for a vacuum tube photomultiplier. Its peak excitation voltage is 420 nm, which is nearly perfect for this. I use a Cremat CR-110 charge sensitive preamplifier with microsecond pulses, followed by a CR-200-500ns pulse shaper for 500 nanosecond pulses whenever electrons are detected by it, and I'm using a 10 MSPS ADC to detect this, which is more than the 2 MSPS baseline sampling speed required to detect 500 ns pulses. A +-10V 16-bit DAC will be used for raster scanning, and electrostatic plates will be used to deflect beams in the X and Y direction to provide variable magnification and digital control over the raster scanning.
+### Electron Column
+- Simulated and finalized using the open-source electrodynamics package [Picht](https://github.com/rolypolytoy/picht/blob/main/examples/sem.py).
+- Includes a design for micron-level spot sizes using Wehnelt caps, an electrostatic objective lens, and an electrostatic condenser lens, using full relativistic accuracy and Lorentz force calculations.
 
-Datasheets for all the components I've picked are included in the folder, and the bill of materials includes all of these.
+### Detection, Control, and Embedded Systems
+A  low-cost detector system is under development:
 
-**Frame, Stage and CAD:** In progress.
+- **Microcontroller**:  
+  - Teensy 4.1 (no electrolytic capacitors, which make it safe for vacuum pressures)
+  - Adequate computing power for onboard signal processing, like frame averaging or deconvolution.
+  - Works with the Arduino framework which makes coding for it a lot easier.
 
-## Assembly
-Upcoming. A preliminary bill of materials, with an estimated cost of around $2200 USD is shown.
+- **Detector**:  
+  - Plastic scintillator with 425 nm emission (AliExpress)
+  - Onsemi SiPM with 420 nm peak sensitivity (perfect match)
+
+- **Amplification & Shaping**:  
+  - **Cremat CR-110** charge-sensitive preamplifier (µs-long pulses, 7 ns rise time) to read current from the silicon photomultiplier  
+  - **Cremat CR-200-500ns** pulse shaper (500 ns pulses) so the ADC can read from it
+
+- **Data Acquisition**:  
+  - 10 MSPS ADC (exceeds the 2 MSPS requirement for 500 ns pulses)
+
+- **Raster Scanning**:  
+  - ±10V, 16-bit DAC for analog control  
+  - Electrostatic deflection plates for beam movement and magnification
+
+All component datasheets and the full bill of materials are included in this repository.
+
+### Frame, Stage, and CAD
+- In progress.
+- Parametric CAD models underway for:
+  - Mechanical frame
+  - Sliding vacuum doors
+  - Cable feedthroughs
+  - Stage platform
+  - Mounting hardware
+
+---
+
+## Development Timeline
+
+| Milestone                            | Target Date |
+|-------------------------------------|-------------|
+| Vacuum and column design complete   | ✅ Q1 2025   |
+| **Release-ready version**           | 🟡 **Q2 2025** |
+---
+
+## Estimated Cost
+
+A preliminary bill of materials puts the total project cost at approximately **$2200 USD**, including:
+
+- High vacuum components
+- Beam optics
+- Detector electronics
+- Embedded control system
+- Mechanical frame and assembly
+
+---
+
+## Why S1 Is Different
+
+Unlike other DIY SEMs, S1 is:
+
+- Based on first-principles simulations (via Picht), which is a standard step in industrial prototyping and experimental physics research.
+- Built with modular, reproducible hardware rather than eBay-lifted used parts, or exclusive enterprise hardware. This enables reproducibility, performance, and low cost, a difficult trifecta to nail for both DIY-ers and commercial vendors.
+- Fully documented with CAD, BOMs, control logic, and code.
+- Designed for educational and research-grade applications.
+
+---
+
+_This is a work-in-progress. Contributions, feedback, and collaborations are welcome._
 
