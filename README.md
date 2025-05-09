@@ -112,7 +112,7 @@ The main cost-savers were making a custom diffusion pump design rather than lift
 ## Checklist of What Remains
 Here's what I still need to implement:
 
-- Functioning code for the microcontroller to run on, and a companion desktop app that integrates with any OS (I don't want a repeat of the "we keep this terminal on Windows 97" that's common in SEM labs)
+- Functioning code for the microcontroller to run on, and a companion desktop app that integrates with any OS
 - CAD and Assembly files for the mechanical portions
 - Assembly and proof of functionality.
 
