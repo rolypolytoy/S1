@@ -40,7 +40,7 @@ Wire it such that the arrangement is -10kV terminal -> 15 MOhm -> 2.5 MOhm -> 7 
 
 ![circuit (6)](https://github.com/user-attachments/assets/aad040da-3408-4a23-998c-13119db33bba)
 
-Again- ensure you use proper practices for the 10kV rated wiring (which is the only wiring you should be using here), tape-insulate EVERYTHING, and make the diagram as follows. We now have distinct voltages for -7kV, -6.5kV, -5.1kV, -5kV, and 0V, all of which are exactly the reference voltages required to make the beam column design as shown in the simulations.
+Again- ensure you use proper practices for the 10kV rated wiring (which is the only wiring you should be using here), tape-insulate EVERYTHING, and make the diagram as follows. We now have distinct voltages for -7kV, -6.5kV, -5.1kV, -5kV, and 0V, all of which are exactly the reference voltages required to make the beam column design as shown in the simulations. Once we've set this up via soldering, etc etc, prior to every switching it on, we'll coat it in [epoxy resin](https://www.amazon.in/DYNAMIC-EDGE-Hardener-Long-Lasting-Non-Toxic/dp/B0CWZ8G5CM) to nullify current leakage effects and make it even more safe.
 
 The -5kV goes to the cathode bias, 0V to the first and third electrodes of both the condenser and objective lens, -5.1kV to the Wehnelt cap, -6.5kV to the objective lens, and -7kV to the condenser lens. 
 
