@@ -46,3 +46,28 @@ The -5kV goes to the cathode bias, 0V to the first and third electrodes of both 
 
 ## Column Design
 I've already designed my column using [Picht](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/sem.py) with visual results of focusing behavior that's shown in many places. Using the pre-verified design as a baseline, we can build it out using parametric CAD software, as well as sufficient insulation to prevent arcing.
+
+Let's examine the image in more detail:
+
+![SEM](https://github.com/user-attachments/assets/bf504bbb-a7cd-4d59-928d-a396407bddf0)
+
+You can regenerate it using [this code](https://rolypolytoy.github.io/picht/auto_examples/example_sem_simulation.html#sphx-glr-auto-examples-example-sem-simulation-py).
+
+**First Crossover**
+
+If you zoom into the focal points using Matplotlib (its visualization features reign supreme) you can find spherical aberrations that you couldn't in the top-level view. Zooming into the first crossover point between the Wehnelt Cylinder and the condenser lens we find this:
+![firstcrossover](https://github.com/user-attachments/assets/49694420-81a0-4eff-b8ff-b667e5665d46)
+
+The spherical aberration on the z-axis begins at 42.695 mm and ends at 42.818 mm, with a true central 'focal length' of the first crossover at approximately 42.757 mm, and a focal spot size of 123 micrometers.
+
+**Second Crossover**
+![SphericalAberration](https://github.com/user-attachments/assets/4b509d0d-4100-4da0-8940-5ef2d9a6622b)
+
+The second crossover is on the z-axis from 150.5 mm to 151.8 mm, an effective central 'focal point' at 151.2 mm on the z-axis, and thus a focal spot size of 1300 micrometers, which means there's more spherical aberration here than in the first crossover by a factor of 10. I'd like to say I'm surprised, but this is not abnormal. 
+
+**Final Focus**
+![image](https://github.com/user-attachments/assets/b57486f5-badc-4deb-8141-71e9fa0a17d8)
+
+Here's the final focus and how it looks like. This might look different to the previous one, because the grid's not regular like the other one, but all this means is we have elliptical aberration, and it's actually better because it's more precise focusing in the axis we want. A significant portion of them are concentrated between 210.32 - 210.36 mm, with the full range being from 210.32 mm to 211.07 mm. Due to the nonlinear nature of how the beams are distributed the median beam is at roughly 210.5 mm, so I'll consider this the true focal point of the system. The uncorrected spot size is thus 750 micrometers, which is an improvement over the first crossover by a significant degree, though still worse than the first crossover. Still, not bad. 
+
+
