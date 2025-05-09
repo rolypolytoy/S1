@@ -1,12 +1,12 @@
 # S1 Desktop SEM
 
-S1 is an open-source, low-cost scanning electron microscope (SEM) project designed to bring formal engineering rigor and scientific accuracy to the DIY SEM space. Inspired by [Applied Science's DIY SEM](https://www.youtube.com/watch?v=VdjYVF4a6iU&t=467s), S1 aims to create a reproducible, scientifically valid, and affordable SEM for under $2500 USD, to make nanocharacterization accessible to audiences that weren't able to before. Current finite difference method calculations estimate a 740 nm beam spot size with off-the-shelf components, with sub-500nm resolution as an entirely possible goal when combining DSP methods like deconvolution, frame averaging, and good practices during raster scanning.
+S1 is an open-source, low-cost scanning electron microscope (SEM) project designed to bring formal engineering rigor and scientific accuracy to the DIY SEM space. Inspired by [Applied Science's DIY SEM](https://www.youtube.com/watch?v=VdjYVF4a6iU&t=467s), S1 aims to create a reproducible, scientifically valid, and affordable SEM for under $2500 USD, to make nanocharacterization accessible to audiences that weren't able to before.
 
 Because Picht already supports ions, and because making [custom field-emission tips](https://link.springer.com/article/10.1007/s42452-020-3017-4) is an established process in the scientific open source community, the established hardware processes shown here can very easily be extended to FIB systems, or dual-beam systems with minimal overhead- a mild overhaul in voltages of the einzel lenses, recalculations using Picht, and new engineering for the liquid ion or gas ion source is all that's required, so this project is already building the foundations for an entire nanofabrication platform. You can, for example, for an FIB system, simply lift all the embedded systems hardware, ion column CAD files, and vacuum integrity modules. All you need to do is remove the ET detector and all the frills, replace the tungsten thermionic electrode with a Gallium LMIS or Helium GFIS source (not difficult to make in CAD) and remanufacture.
 
 | Metric            | Estimated     | Achieved | Method                  |
 | ----------------- | ---------- | -------- | ----------------------- |
-| Beam Spot Size    | <750 nm     | TBD      | Picht calculations for 67x demagnification between crossovers, Pt-Ir 50 μm beam limiting aperture at crossover |
+| Beam Spot Size    | <1000 nm     | TBD      | Picht calculations, Pt-Ir 50 μm beam limiting aperture at crossover |
 | Vacuum Pressure   | <10⁻⁵ Torr | TBD      | 1e-8 mbar vapor-pressure vacuum oil ([Ultragrade 19](https://www.ajvs.com/edwards-ultragrade-19-hydrocarbon-vacuum-pump-oil-15494)), HV Diffusion Pump      |
 | Resolution        | <500 nm       | TBD      | Deconvolution, frame-averaging, contrast-based autofocus, and digital signals processing (DSP)      |
 
@@ -29,16 +29,17 @@ The C-bend in the flange is in the stead of an optical baffle- the oil vapors wi
 - Simulated and finalized using the open-source electrodynamics package [Picht](https://rolypolytoy.github.io/picht/auto_examples/example_sem_simulation.html#sphx-glr-auto-examples-example-sem-simulation-py).
 - Includes a design for micron-level spot sizes using Wehnelt caps, an electrostatic objective lens, and an electrostatic condenser lens, using full relativistic accuracy and Lorentz force calculations.
 - Image of electrons inside the column design:
-![SEM](https://github.com/user-attachments/assets/6fcb361e-1bca-42dc-8548-b18654829814)
+![SEM](https://github.com/user-attachments/assets/bf504bbb-a7cd-4d59-928d-a396407bddf0)
 
-You can vividly see how the Wehnelt cap causes a first convergence, then the condenser lens converges the diverging beam, and the objective lens produces a focal point ~8 mm beyond its end.
-I also used picht to identify that the demagnification between the first and second crossover is approximately 67x, with the first crossover being 4000 micrometers in diameter and the second being 60 micrometers. This means with a 50 micrometer beam-limiting aperture from [Ted Pella](https://www.tedpella.com/apertures-and-filaments_html/aperture2.aspx) (for less than $80!), you can get 50/67 = 0.74 micrometers of a spot size, or nanometer-level resolution. We might use a larger beam limiting aperture for greater luminosity, but then again, we might not. A radially zoomed-in image better displays how we identified this relationship, and how we precisely identified the crossover point between the two lenses.
+Close-ups at each of the three crossover points:
+![firstcrossover](https://github.com/user-attachments/assets/49694420-81a0-4eff-b8ff-b667e5665d46)
+![SphericalAberration](https://github.com/user-attachments/assets/4b509d0d-4100-4da0-8940-5ef2d9a6622b)
+![image](https://github.com/user-attachments/assets/b57486f5-badc-4deb-8141-71e9fa0a17d8)
 
-![focus](https://github.com/user-attachments/assets/5d8518e4-04b8-4677-aba3-23a68ba41b8d)
+We also have a fully functional voltage divider to get from -10kV and 0V to: -10kV, -7.2kV, -5.1kV, -5kV, and 0kV, all the discrete voltage steps required to safely operate the cathode/anode acceleration, and the voltages for the einzel lenses, with proper [power electronics practices](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/README.md). The voltage divider looks like this:
+![circuit (8)](https://github.com/user-attachments/assets/47eeaeaf-5db7-4988-9f3d-876ba17c3b8a)
 
-We also have a fully functional voltage divider to get from -10kV and 0V to: -7kV, -6.5kV, -5.1kV, -5kV, and 0kV, all the discrete voltage steps required to safely operate the cathode/anode acceleration, and the voltages for the einzel lenses, with proper [power electronics practices](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/README.md). The voltage divider looks like this:
-
-And can be made with the cheaply available 1% tolerance multi-resistor kits while falling entirely within their power consumption limits. Since we use megaohm scale-resistors, the whole voltage divider functions as one massive bleeder resistor, and so is tremendously, tremendously good for safety. 
+And can be made with the cheaply available 1% tolerance multi-resistor kits while falling entirely within their power consumption limits. Since we use megaohm scale-resistors, the whole voltage divider functions as one massive bleeder resistor, and so is tremendously, tremendously good for safety, all while working with 0.25W resistors due to low maximum current. 
 
 
 ### Detection, Control, and Embedded Systems
