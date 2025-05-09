@@ -38,8 +38,6 @@ I also used picht to identify that the demagnification between the first and sec
 
 We also have a fully functional voltage divider to get from -10kV and 0V to: -7kV, -6.5kV, -5.1kV, -5kV, and 0kV, all the discrete voltage steps required to safely operate the cathode/anode acceleration, and the voltages for the einzel lenses, with proper [power electronics practices](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/README.md). The voltage divider looks like this:
 
-![circuit (6)](https://github.com/user-attachments/assets/aad040da-3408-4a23-998c-13119db33bba)
-
 And can be made with the cheaply available 1% tolerance multi-resistor kits while falling entirely within their power consumption limits. Since we use megaohm scale-resistors, the whole voltage divider functions as one massive bleeder resistor, and so is tremendously, tremendously good for safety. 
 
 
