@@ -26,9 +26,9 @@ S1 is composed of four core modules:
 The C-bend in the flange is in the stead of an optical baffle- the oil vapors will condense inside the pipe rather than go inside the chamber. This is a minor risk and it's not often mitigated in prototype designs, but I've mitigated it by adding it into the piping rather than an entirely separate component.
 
 ### [Electron Column](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column)
-- Simulated and finalized using the open-source electrodynamics package [Picht](https://github.com/rolypolytoy/picht/blob/main/examples/sem.py) (which I made!).
+- Simulated and finalized using the open-source electrodynamics package [Picht](https://rolypolytoy.github.io/picht/auto_examples/example_sem_simulation.html#sphx-glr-auto-examples-example-sem-simulation-py).
 - Includes a design for micron-level spot sizes using Wehnelt caps, an electrostatic objective lens, and an electrostatic condenser lens, using full relativistic accuracy and Lorentz force calculations.
-- Image of electrons inside the column design (visualized by Picht):
+- Image of electrons inside the column design:
 ![SEM](https://github.com/user-attachments/assets/6fcb361e-1bca-42dc-8548-b18654829814)
 
 You can vividly see how the Wehnelt cap causes a first convergence, then the condenser lens converges the diverging beam, and the objective lens produces a focal point ~8 mm beyond its end.
