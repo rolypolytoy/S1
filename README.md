@@ -29,9 +29,9 @@ The C-bend in the flange is in the stead of an optical baffle- the oil vapors wi
 - Simulated and finalized using the open-source electrodynamics package [Picht](https://github.com/rolypolytoy/picht/blob/main/examples/sem.py) (which I made!).
 - Includes a design for micron-level spot sizes using Wehnelt caps, an electrostatic objective lens, and an electrostatic condenser lens, using full relativistic accuracy and Lorentz force calculations.
 - Image of electrons inside the column design (visualized by Picht):
-![SEM](https://github.com/user-attachments/assets/8e4bc3db-832a-4892-869d-d16839526ebe)
+![SEM](https://github.com/user-attachments/assets/6fcb361e-1bca-42dc-8548-b18654829814)
 
-You can vividly see how the condenser lens converges the diverging beam, and the objective lens produces a focal point ~8 mm beyond its end.
+You can vividly see how the Wehnelt cap causes a first convergence, then the condenser lens converges the diverging beam, and the objective lens produces a focal point ~8 mm beyond its end.
 I also used picht to identify that the demagnification between the first and second crossover is approximately 67x, with the first crossover being 4000 micrometers in diameter and the second being 60 micrometers. This means with a 50 micrometer beam-limiting aperture from [Ted Pella](https://www.tedpella.com/apertures-and-filaments_html/aperture2.aspx) (for less than $80!), you can get 50/67 = 0.74 micrometers of a spot size, or nanometer-level resolution. We might use a larger beam limiting aperture for greater luminosity, but then again, we might not. A radially zoomed-in image better displays how we identified this relationship, and how we precisely identified the crossover point between the two lenses.
 
 ![focus](https://github.com/user-attachments/assets/5d8518e4-04b8-4677-aba3-23a68ba41b8d)
