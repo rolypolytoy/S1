@@ -6,11 +6,9 @@ We'll use the information Ted Pella gives on its thermionic sources to model low
 - -100V biased Wehnelt Cylinder.
 - A Tungsten Thermionic source of a 60 micrometers cathode radius, and 15 micrometers beam emittance spot
 - A 5kV accelerating voltage
-- 7kV and 6.5kV condenser and objective lenses with proper fringing accounted for
+- 7.2kV and 10kV condenser and objective lenses with proper fringing accounted for
 
 An electrostatic condenser lens, and an electrostatic objective lens- we're building off the [Applied Science SEM proof-of-concept](https://www.youtube.com/watch?v=VdjYVF4a6iU&t=467s) which already uses electrostatic lenses, but we use much higher voltages, and einzel lenses instead of cylindrical lenses, and simulate the column in its entirety.
-
-The full parameters of the beam simulation can be found at [Picht](https://github.com/rolypolytoy/picht/blob/main/examples/sem.py), but to summarize we've found a system which enables micron-level spot size, with 67x demagnification between the first crossover and the focal point which is ~8mm downstream of the final einzel lens. If we buy a 200 micrometers [beam limiting aperture](https://www.tedpella.com/apertures-and-filaments_html/aperture3.aspx) (for only $99 USD!!!), we can get 200/67 = 3 micrometers of a spot size, which is tremendous for a DIY system. Whether we actually get this degree of resolution on a DIY system remains to be seen, but counterintuitively we might be able to push it below micrometer-resolution with DSP techniques like deconvolution and frame-averaging- if we have a good enough raster scanner.
 
 The full CAD design of the electron column post-design is incoming, but all the geometric data's fully available in the design, which already accounts for being inside an enclosed vacuum chamber due to its Dirichlet boundary conditions.
 
