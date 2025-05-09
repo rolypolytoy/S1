@@ -16,7 +16,7 @@ Because Picht already supports ions, and because making [custom field-emission t
 
 S1 is composed of four core modules:
 
-### [Vacuum Integrity](https://github.com/rolypolytoy/diffusion_pump)
+### [Vacuum Integrity](https://github.com/rolypolytoy/S1/tree/main/Vacuum%20Integrity)
 - Fully functional high-vacuum system.
 - Custom diffusion pump design and integration with COTC rotary vane pumps.
 - Image of CAD files:
@@ -26,12 +26,12 @@ S1 is composed of four core modules:
 The C-bend in the flange is in the stead of an optical baffle- the oil vapors will condense inside the pipe rather than go inside the chamber. This is a minor risk and it's not often mitigated in prototype designs, but I've mitigated it by adding it into the piping rather than an entirely separate component.
 
 ### [Electron Column](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column)
-- Simulated and finalized using the open-source electrodynamics package [Picht](https://github.com/rolypolytoy/picht/blob/main/examples/sem.py) (which I made!).
+- Simulated and finalized using the open-source electrodynamics package [Picht](https://rolypolytoy.github.io/picht/auto_examples/example_sem_simulation.html#sphx-glr-auto-examples-example-sem-simulation-py).
 - Includes a design for micron-level spot sizes using Wehnelt caps, an electrostatic objective lens, and an electrostatic condenser lens, using full relativistic accuracy and Lorentz force calculations.
-- Image of electrons inside the column design (visualized by Picht):
-![SEM](https://github.com/user-attachments/assets/8e4bc3db-832a-4892-869d-d16839526ebe)
+- Image of electrons inside the column design:
+![SEM](https://github.com/user-attachments/assets/6fcb361e-1bca-42dc-8548-b18654829814)
 
-You can vividly see how the condenser lens converges the diverging beam, and the objective lens produces a focal point ~8 mm beyond its end.
+You can vividly see how the Wehnelt cap causes a first convergence, then the condenser lens converges the diverging beam, and the objective lens produces a focal point ~8 mm beyond its end.
 I also used picht to identify that the demagnification between the first and second crossover is approximately 67x, with the first crossover being 4000 micrometers in diameter and the second being 60 micrometers. This means with a 50 micrometer beam-limiting aperture from [Ted Pella](https://www.tedpella.com/apertures-and-filaments_html/aperture2.aspx) (for less than $80!), you can get 50/67 = 0.74 micrometers of a spot size, or nanometer-level resolution. We might use a larger beam limiting aperture for greater luminosity, but then again, we might not. A radially zoomed-in image better displays how we identified this relationship, and how we precisely identified the crossover point between the two lenses.
 
 ![focus](https://github.com/user-attachments/assets/5d8518e4-04b8-4677-aba3-23a68ba41b8d)
@@ -40,7 +40,7 @@ We also have a fully functional voltage divider to get from -10kV and 0V to: -7k
 
 ![circuit (6)](https://github.com/user-attachments/assets/aad040da-3408-4a23-998c-13119db33bba)
 
-And can be made with the cheaply available 1% tolerance multi-resistor kits while falling entirely within their power consumption limits, as well as adds bleeder-resistor-safety natively by using multi-megaohm resistance values to limit currents to the microampere regime.
+And can be made with the cheaply available 1% tolerance multi-resistor kits while falling entirely within their power consumption limits. Since we use megaohm scale-resistors, the whole voltage divider functions as one massive bleeder resistor, and so is tremendously, tremendously good for safety. 
 
 
 ### Detection, Control, and Embedded Systems
@@ -112,8 +112,7 @@ The main cost-savers were making a custom diffusion pump design rather than lift
 ## Checklist of What Remains
 Here's what I still need to implement:
 
-- Circuit diagrams for all electrically active component including the electron column and all embedded systems and embedded-adjacent materials.
-- Functioning code for the microcontroller to run on, and a companion desktop app that integrates with any OS (I don't want a repeat of the "we keep this terminal on Windows 97" that's common in SEM labs)
+- Functioning code for the microcontroller to run on, and a companion desktop app that integrates with any OS
 - CAD and Assembly files for the mechanical portions
 - Assembly and proof of functionality.
 
