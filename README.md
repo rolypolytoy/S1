@@ -31,7 +31,7 @@ The C-bend in the flange is in the stead of an optical baffle- the oil vapors wi
 - Image of electrons inside the column design:
 ![SEM](https://github.com/user-attachments/assets/bf504bbb-a7cd-4d59-928d-a396407bddf0)
 
-Close-ups at each of the three crossover points:
+Close-ups of exact focal spot sizes/spherical or elliptic aberrations at each of the three crossover points:
 ![firstcrossover](https://github.com/user-attachments/assets/49694420-81a0-4eff-b8ff-b667e5665d46)
 ![SphericalAberration](https://github.com/user-attachments/assets/4b509d0d-4100-4da0-8940-5ef2d9a6622b)
 ![image](https://github.com/user-attachments/assets/b57486f5-badc-4deb-8141-71e9fa0a17d8)
