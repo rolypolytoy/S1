@@ -67,7 +67,7 @@ The second crossover is on the z-axis from 150.5 mm to 151.8 mm, an effective ce
 **Final Focus**
 ![image](https://github.com/user-attachments/assets/b57486f5-badc-4deb-8141-71e9fa0a17d8)
 
-Here's the final focus and how it looks like. This might look different to the previous one, because the grid's not regular like the other one, but all this means is we have elliptical aberration, and it's actually better because it's more precise focusing in the axis we want. A significant portion of them are concentrated between 210.32 - 210.36 mm, with the full range being from 210.32 mm to 211.07 mm. Due to the nonlinear nature of how the beams are distributed the median beam is at roughly 210.5 mm, so I'll consider this the true focal point of the system. The uncorrected spot size is thus 750 micrometers, but the portion of significant beam intensity which might have a good SNR as well is only 40 micrometers. Not bad.
+Here's the final focus and how it looks like. This might look different to the previous one, because the grid's not regular like the other one, but all this means is we have elliptical aberration, and it's actually better because it's less aberration across the r-axis and more across the z-axis, and a lower distribution across the r-axis is what we really want. A significant portion of them are concentrated between 210.32 - 210.36 mm, with the full range being from 210.32 mm to 211.07 mm. Due to the nonlinear nature of how the beams are distributed the median beam is at roughly 210.5 mm, so I'll consider this the true focal point of the system. The uncorrected spot size is thus 750 micrometers, but the portion of significant beam intensity which might have a good SNR as well is only 40 micrometers. Not bad.
 
 
 ## Beam Assembly (CAD)
