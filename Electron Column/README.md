@@ -103,4 +103,8 @@ system.add_electrode(wehnelt2)
 ```
 The grid units are 0.1m/100 and 0.4m/400 respectively, or 1 mm in both the z-axis and r-axis, and this is an intentional decision so that all grid units translate perfectly to mm.
 
-Moreover both 'sections' of the Wehnelt cap have an OD of 50 mm. The first part- one with a height of 30 mm (width) has an ap_width, or ID of 40 mm, and the second part- the opening- has a thickness of 5 mm and an ap_width/ID of 10 mm. From this, it's relatively straightforward to make.
+Moreover both 'sections' of the Wehnelt cap have an OD of 50 mm. The first part- one with a height of 30 mm (width) has an ap_width, or ID of 40 mm, and the second part- the opening- has a thickness of 5 mm and an ap_width/ID of 10 mm. From this, it's relatively straightforward to make:
+
+![image](https://github.com/user-attachments/assets/835b41cd-3f02-43fb-acfb-7acf996b3898)
+
+The CAD files of the Wehnelt cylinder are in .FCstd format [here](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/CAD/WehneltCap.FCStd) and in .step format [here](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/CAD/WehneltCap.step).
