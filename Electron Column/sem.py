@@ -49,34 +49,33 @@ system.add_electrode(cathode)
 #Condenser Lens- In between the first and second crossover point, provides initial focusing
 system.add_einzel_lens(
     position= 70.0,
-    width=60.0,
+    width=70.0,
     aperture_center=50.0,
     aperture_width=48.0,
     outer_diameter=50.0,
-    focus_voltage=-8100
+    focus_voltage=-7500
 )
+
+#A Beam-Limiting Aperture comes between the lenses to add a demagnification ratio
+
+#Objective Lens- Provides final focusing mere millimeters after its end
 system.add_einzel_lens(
-    position= 131.0,
-    width=67.0,
+    position= 141.0,
+    width=58.0,
     aperture_center=50.0,
     aperture_width=48.0,
     outer_diameter=50.0,
     focus_voltage=-10000
 )
 
-#A Beam-Limiting Aperture comes between the lenses to add a demagnification ratio
-
-#Objective Lens- Provides final focusing mere millimeters after its end
-
-
 potential = system.solve_fields()
 
-#Notice how we initialize it at only 0.1 eV- the acceleration happens from the field lines between the cathode and anode
+#Notice how we initialize it at only 0.5 eV- the acceleration happens from the field lines between the cathode and anode
 trajectories = system.simulate_beam(
-    energy_eV= 0.1,  
+    energy_eV= 0.5,  
     start_z=0.025, #We begin at z = 0.025, or 25 grid units in the z-direction so that there's a bit of Wehnelt Cylinder behind this
-    r_range=(0.0499875, 0.0500125), #15 micron thick beam, which is a realistic amount
-    angle_range=(-2, 2), #very high initial angular divergence to mimic thermionic emission
+    r_range=(0.0499875, 0.0500125), #25 micron thick beam, which is a realistic amount given by the manufacturer
+    angle_range=(-2, 2), #very high initial angular divergence to mimic thermionic emission + Coulomb repulsion pre-acceleration
     num_particles=100, #increasing this won't improve visualization, because the beams are artificially forced into an axisymmetric path because of the electrode configurations
     simulation_time=1e-8 #empirically found value for when the full simulation completes
 )
