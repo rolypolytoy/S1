@@ -76,7 +76,7 @@ trajectories = system.simulate_beam(
     start_z=0.025, #We begin at z = 0.025, or 25 grid units in the z-direction so that there's a bit of Wehnelt Cylinder behind this
     r_range=(0.0499875, 0.0500125), #25 micron thick beam, which is a realistic amount given by the manufacturer
     angle_range=(-2, 2), #very high initial angular divergence to mimic thermionic emission + Coulomb repulsion pre-acceleration
-    num_particles=100, #increasing this won't improve visualization, because the beams are artificially forced into an axisymmetric path because of the electrode configurations
+    num_particles=10, #the time it takes to compute scales o(n)-ish with this
     simulation_time=1e-8 #empirically found value for when the full simulation completes
 )
 
