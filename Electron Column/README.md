@@ -74,4 +74,33 @@ Now, we need to make the beam assembly based on this validated design. We'll use
 
 According to [Ted Pella](https://www.tedpella.com/apertures-and-filaments_html/tungsten-filaments.aspx) the diameter of the AEI tungsten filament's ceramic base is 12 mm, with the pin diameters being 1 mm and the center distance of the pins being 6.45 mm. 
 
-We can thus design the CAD components for the column with all of this in mind. 
+We can thus design the CAD components for the column with all of this in mind.
+
+**Wehnelt Cylinder**
+
+If we examine the code for the Wehnelt Cylinder in sem.py: 
+```python
+system = IonOpticsSystem(nr=100, nz=400, axial_size=0.4, radial_size = 0.1)
+#Wehnelt Cylinders- responsible for the first crossover
+wehnelt1 = ElectrodeConfig(
+    start=0,
+    width=30,
+    ap_start=30,
+    ap_width=40,
+    outer_diameter = 50,
+    voltage=-5150 #biased at -150V in relation to the cathode
+)
+wehnelt2 = ElectrodeConfig(
+    start=30,
+    width=5,
+    ap_start=45,
+    ap_width=10,
+    outer_diameter = 50,
+    voltage=-5150 #biased at -150V in relation to the cathode
+)
+system.add_electrode(wehnelt1)
+system.add_electrode(wehnelt2)
+```
+The grid units are 0.1m/100 and 0.4m/400 respectively, or 1 mm in both the z-axis and r-axis, and this is an intentional decision so that all grid units translate perfectly to mm.
+
+Moreover both 'sections' of the Wehnelt cap have an OD of 50 mm. The first part- one with a height of 30 mm (width) has an ap_width, or ID of 40 mm, and the second part- the opening- has a thickness of 5 mm and an ap_width/ID of 10 mm. From this, it's relatively straightforward to make.
