@@ -47,28 +47,29 @@ Again- ensure you use proper practices for the 10kV rated wiring (which is the o
 I've already designed my column using [Picht](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/sem.py) with visual results of focusing behavior that's shown in many places. Using the pre-verified design as a baseline, we can build it out using parametric CAD software, as well as sufficient insulation to prevent arcing.
 
 Let's examine the image in more detail:
+![SEM](https://github.com/user-attachments/assets/77c80e26-aec4-40b3-aa98-369c81665102)
 
-![SEM](https://github.com/user-attachments/assets/bf504bbb-a7cd-4d59-928d-a396407bddf0)
 
 You can regenerate it using [this code](https://rolypolytoy.github.io/picht/auto_examples/example_sem_simulation.html#sphx-glr-auto-examples-example-sem-simulation-py).
 
 **First Crossover**
 
 If you zoom into the focal points using Matplotlib (its visualization features reign supreme) you can find spherical aberrations that you couldn't in the top-level view. Zooming into the first crossover point between the Wehnelt Cylinder and the condenser lens we find this:
-![firstcrossover](https://github.com/user-attachments/assets/49694420-81a0-4eff-b8ff-b667e5665d46)
+![FirstCrossover](https://github.com/user-attachments/assets/52d47ffe-41ff-4afd-877e-bd703b1337fd)
 
-The spherical aberration on the z-axis begins at 42.695 mm and ends at 42.818 mm, with a true central 'focal length' of the first crossover at approximately 42.757 mm, and a focal spot size of 123 micrometers.
+Focal length: From 40.65 mm to 40.89 mm, with focal diameter/spot size of 240 micrometers and a center of focus at 40.77 mm.
 
 **Second Crossover**
-![SphericalAberration](https://github.com/user-attachments/assets/4b509d0d-4100-4da0-8940-5ef2d9a6622b)
 
-The second crossover is on the z-axis from 150.5 mm to 151.8 mm, an effective central 'focal point' at 151.2 mm on the z-axis, and thus a focal spot size of 1300 micrometers, which means there's more spherical aberration here than in the first crossover by a factor of 10. I'd like to say I'm surprised, but this is not abnormal. 
+![SecondCrossover](https://github.com/user-attachments/assets/eb8d4675-ada9-4a6b-abb3-cbfc5ae6cdfb)
+
+Focal length: From 140.10 mm to 140.39 mm, with focal diameter/spot size of 290 micrometers and a center of focus at 140.25 mm.
+
 
 **Final Focus**
-![image](https://github.com/user-attachments/assets/b57486f5-badc-4deb-8141-71e9fa0a17d8)
+![Focus](https://github.com/user-attachments/assets/0ec8ab87-5951-41c6-90cf-71778c42e120)
 
-Here's the final focus and how it looks like. This might look different to the previous one, because the grid's not regular like the other one, but all this means is we have elliptical aberration, and it's actually better because it's less aberration across the r-axis and more across the z-axis, and a lower distribution across the r-axis is what we really want. A significant portion of them are concentrated between 210.32 - 210.36 mm, with the full range being from 210.32 mm to 211.07 mm. Due to the nonlinear nature of how the beams are distributed the median beam is at roughly 210.5 mm, so I'll consider this the true focal point of the system. The uncorrected spot size is thus 750 micrometers, but the portion of significant beam intensity which might have a good SNR as well is only 40 micrometers. Not bad.
-
+Focal length: From 201.52 mm to 203.02 mm, with focal diameter/spot size of 1500 micrometers and a center of focus at 202.27mm.
 
 ## Beam Assembly (CAD)
 Now, we need to make the beam assembly based on this validated design. We'll use aluminium 6063 for any electrically active components (to minimize the final weight of the desktop SEM). We also need a machinable insulator material- PTFE is great for this because it has at the **lowest end** a dielectric strength of [20kV/mm](https://polyfluoroltd.com/blog/the-insane-electrical-properties-of-ptfe-and-how-to-interpret-them/), which means 1 mm thick insulation with PTFE will have a 2x safety factor with even the most high-voltage differential einzel lens, which is our objective lens with a middle voltage of -10kV with the other two electrodes at ground. [PTFE's](https://en.wikipedia.org/wiki/Materials_for_use_in_vacuum#Plastics) also completely fine to use in HV conditions, and is [machinable](https://fluorocarbon.co.uk/resources/blog/a-guide-to-machining-ptfe/) though with some expansion/creep issues, which is fine because no critical positioning aspects are affected by PTFE. We'll use machined shoulders to make a column using the dimensions from the SEM analysis we've done so far.
