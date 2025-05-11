@@ -107,7 +107,7 @@ The main cost-savers were making a custom diffusion pump design rather than lift
 Here's what I still need to implement:
 
 - Functioning code for the microcontroller to run on, and a companion desktop app that integrates with any OS
-- CAD and Assembly files for the mechanical portions
+- CAD files for the mechanical portions
 - Assembly and proof of functionality.
 
 ---
