@@ -1,5 +1,5 @@
 # Electron Column Hierarchy
-Our electron column uses an off-the-shelf tungsten thermionic filament bought from [Ted Pella](https://www.tedpella.com/apertures-and-filaments_html/tungsten-filaments.aspx), where 10 tungsten-rhenium filaments go for $244, for a unit cost of $24/filament).
+Our electron column uses an off-the-shelf tungsten thermionic filament bought from [Ted Pella](https://www.tedpella.com/apertures-and-filaments_html/tungsten-filaments.aspx), where 10 tungsten-rhenium filaments go for $244, for a unit cost of $24/filament, or from [Agar](https://www.agarscientific.com/agar-filaments), [Microtonano](https://www.microtonano.com/EBS-Tungsten-EM-Filaments.php#a14AE1201B), and [Oxford Instruments](https://estore.oxinst.com/us/products/microscopy-supplies/electron-microscopy/filaments/zid51-1625-0153) for $10/filament.
 
 We'll use the information Ted Pella gives on its thermionic sources to model low-ev (10 eV-ish) electrons boiling off at 2800 K using the Picht software package, and create a full electrostatic lens design using:
 
@@ -72,3 +72,5 @@ Here's the final focus and how it looks like. This might look different to the p
 
 ## Beam Assembly (CAD)
 Now, we need to make the beam assembly based on this validated design. We'll use aluminium 6063 for any electrically active components (to minimize the final weight of the desktop SEM). We also need a machinable insulator material- PTFE is great for this because it has at the **lowest end** a dielectric strength of [20kV/mm](https://polyfluoroltd.com/blog/the-insane-electrical-properties-of-ptfe-and-how-to-interpret-them/), which means 1 mm thick insulation with PTFE will have a 2x safety factor with even the most high-voltage differential einzel lens, which is our objective lens with a middle voltage of -10kV with the other two electrodes at ground. [PTFE's](https://en.wikipedia.org/wiki/Materials_for_use_in_vacuum#Plastics) also completely fine to use in HV conditions, and is [machinable](https://fluorocarbon.co.uk/resources/blog/a-guide-to-machining-ptfe/) though with some expansion/creep issues, which is fine because no critical positioning aspects are affected by PTFE. We'll use machined shoulders to make a column using the dimensions from the SEM analysis we've done so far.
+
+According to [Ted Pella](https://www.tedpella.com/apertures-and-filaments_html/tungsten-filaments.aspx) the diameter of the AEI tungsten filament's ceramic base is 12 mm, with the pin diameters being 1 mm and the center distance of the pins being 6.45 mm. 
