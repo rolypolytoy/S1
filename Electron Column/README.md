@@ -107,7 +107,7 @@ Moreover both 'sections' of the Wehnelt cap have an OD of 50 mm. The first part-
 
 ![image](https://github.com/user-attachments/assets/835b41cd-3f02-43fb-acfb-7acf996b3898)
 
-The CAD files of the Wehnelt cylinder are in .FCstd format [here](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/CAD/WehneltCap.FCStd) and in .step format [here](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/CAD/WehneltCap.step). This needs to be held at **-5150 Volts.**
+The CAD files of the Wehnelt cylinder are in .FCStd format [here](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/CAD/WehneltCap.FCStd) and in .step format [here](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/CAD/WehneltCap.step). This needs to be held at **-5150 Volts.**
 
 The anode's code in SEM.py is:
 ```python
@@ -122,4 +122,4 @@ anode = ElectrodeConfig(
 ```
 That's an OD of 50mm, ID of 2mm and width of 2 mm, with a voltage of **0 Volts**. 
 ![image](https://github.com/user-attachments/assets/b943bd0c-d4bc-4a72-9f65-a5408fc4563c)
-You can find its .FCstd [here](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/CAD/Anode.FCStd) and its .step [here](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/CAD/Anode.step). 
+You can find its .FCStd [here](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/CAD/Anode.FCStd) and its .step [here](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/CAD/Anode.step). 
