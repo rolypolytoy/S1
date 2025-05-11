@@ -6,7 +6,7 @@ We'll use the information Agar gives on its thermionic sources to model low-ev (
 - -100V biased Wehnelt Cylinder.
 - A Tungsten Thermionic source of a 60 micrometers cathode radius, and 25 micrometers initial beam spread radially
 - A 5kV accelerating voltage
-- 7.2kV and 10kV condenser and objective lenses with proper fringing accounted for
+- 7.5kV and 10kV condenser and objective lenses with proper fringing accounted for
 
 An electrostatic condenser lens, and an electrostatic objective lens- we're building off the [Applied Science SEM proof-of-concept](https://www.youtube.com/watch?v=VdjYVF4a6iU&t=467s) which already uses electrostatic lenses, but we use much higher voltages, and einzel lenses instead of cylindrical lenses, and simulate the column in its entirety.
 
@@ -25,19 +25,17 @@ From the 10kV initial voltage, we need the following discrete voltage steps acco
 - 0V, or the positive terminal proper, routed to the anode, the walls, and the side electrodes in the einzel lenses
 - -5000V, routed to the cathode
 - -5100V, routed to the Wehnelt cap
-- -7200V, routed to the objective lens' middle electrode
+- -7500V, routed to the objective lens' middle electrode
 - -10000V, routed to the condenser lens' middle electrode
   
 We can make a voltage divider circuit, as well as add safety features, before we rout the voltage to the einzel lenses, Wehnelt Cylinders, etc. We can actually make one series circuit such that it gives us all of these voltages from 10kV using precisely chosen values of resistors, and at least one diode for surge protection. We need to make sure to properly tape the 3M electrical around all the resistors and the active to ensure absolutely no discharge happens, but though we've accounted for safe practices, we need to obtain the resistors and make a valid diagram for it.
 
-In other words, from -10kV we need to first subtract 2800V, then 2100V, then 100V, then 5000V, and so we need these ratios in resistance (28:21:1:50). If we use 1% tolerance resistors at high resistance values in the megaohm range to limit power to below the 0.25W per resistor limit as well as use resistance values commonly found in the ubiquitous [metal-film-oxide resistor kits](https://www.amazon.in/AVS-Components-Tolerance-Assortment-Electronics/dp/B0D6LRXK5P). Make sure to get the 1% tolerance variants, though, and post-assembly to wrap this with the 3M silicone electrical tape for proper insulation.
+In other words, from -10kV we need to first subtract 2500V, then 2400V, then 100V, then 5000V, and so we need these ratios in resistance (25:24:1:50). If we use 1% tolerance resistors at high resistance values in the megaohm range to limit power to below the 0.25W per resistor limit as well as use resistance values commonly found in the ubiquitous [metal-film-oxide resistor kits](https://www.amazon.in/AVS-Components-Tolerance-Assortment-Electronics/dp/B0D6LRXK5P). Make sure to get the 1% tolerance variants, though, and post-assembly to wrap this with the 3M silicone electrical tape for proper insulation.
 
-Kits commonly have 1 MOhm, 2MOhm, 4.7MOhm and 5.6MOhm values of resistors as well as some other common values, which are all the building blocks we'll use. You can make a 14 MOhm resistor using a 7 2MOhm resistors in series. Make a 10.5 MOhm resistor using 5 2MOhm resistors, two 150kOhm resistors and 2 100kOhm resistors. Make a 500kOhm resistor using two 150kOhm resistors and two 100kOhm resistors. Make a 25 MOhm resistor using 1 5.6 MOhm resistor, two 4.7MOhm resistors and five 2MOhm resistors. Wire them up like this to make a voltage divider -10kV -> 2.8MOhm ->  2.1MOhm -> 0.1MOhm -> 5MOhm -> 0V
+Kits commonly have 1 MOhm, 2MOhm, 4.7MOhm and 5.6MOhm values of resistors as well as some other common values, which are all the building blocks we'll use. Make a 12.5 MOhm resistor using 6 2MOhm resistors, two 150kOhm resistors and 2 100kOhm resistors. You can make a 12 MOhm resistor using a 7 2MOhm resistors in series. Make a 500kOhm resistor using two 150kOhm resistors and two 100kOhm resistors. Make a 25 MOhm resistor using 1 5.6 MOhm resistor, two 4.7MOhm resistors and five 2MOhm resistors. Wire them up like this to make a voltage divider -10kV -> 2.5MOhm ->  2.4MOhm -> 0.1MOhm -> 5MOhm -> 0V
 
 This makes a voltage divider circuit like so: 
-
-![circuit (8)](https://github.com/user-attachments/assets/47eeaeaf-5db7-4988-9f3d-876ba17c3b8a)
-
+![VDivider](https://github.com/user-attachments/assets/444b5e2c-e212-404a-930f-ff0ad37f7917)
 
 I'd recommend first creating the geometry of them, [soldering](https://www.amazon.in/Electronic-Spices-Starter-60watt-Soldering/dp/B098XTZJYQ) them together with a high-quality [tin solder](https://www.amazon.in/Solder-Soldering-Electronic-Electrical-Components/dp/B0B3D8NLMB). The net current will be 10kV/50 MOhm = 0.2 mA or 200 microamperes, with the power dissipation across the most energetic resistor of $I^2R$ = $0.04 * 5.6 = 0.224$, which is below their operating power of 0.25W, which means our system should work entirely functionally. We've also created bleeding across all of this, which is tremendously good practice for power electronics because nor electrostatic lenses, nor accelerating electrodes require particularly high operating currents, and >100 microamperes is more than enough for functional operation. 
 
