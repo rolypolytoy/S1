@@ -74,4 +74,4 @@ Now, we need to make the beam assembly based on this validated design. We'll use
 
 According to [Ted Pella](https://www.tedpella.com/apertures-and-filaments_html/tungsten-filaments.aspx) the diameter of the AEI tungsten filament's ceramic base is 12 mm, with the pin diameters being 1 mm and the center distance of the pins being 6.45 mm. 
 
-Make column.
+We can thus design the CAD components for the column with all of this in mind. 
