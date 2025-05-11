@@ -1,7 +1,7 @@
 # Electron Column Hierarchy
-Our electron column uses an off-the-shelf tungsten thermionic filament bought from [Ted Pella](https://www.tedpella.com/apertures-and-filaments_html/tungsten-filaments.aspx), where 10 tungsten-rhenium filaments go for $244, for a unit cost of $24/filament, or from [Agar](https://www.agarscientific.com/agar-filaments), [Microtonano](https://www.microtonano.com/EBS-Tungsten-EM-Filaments.php#a14AE1201B), and [Oxford Instruments](https://estore.oxinst.com/us/products/microscopy-supplies/electron-microscopy/filaments/zid51-1625-0153) for $10/filament.
+Our electron column uses an off-the-shelf tungsten thermionic filament bought from [Ted Pella](https://www.tedpella.com/apertures-and-filaments_html/tungsten-filaments.aspx), or from [Agar](https://www.agarscientific.com/agar-filaments), [Microtonano](https://www.microtonano.com/EBS-Tungsten-EM-Filaments.php#a14AE1201B), and [Oxford Instruments](https://estore.oxinst.com/us/products/microscopy-supplies/electron-microscopy/filaments/zid51-1625-0153) for $10/filament.
 
-We'll use the information Ted Pella gives on its thermionic sources to model low-ev (10 eV-ish) electrons boiling off at 2800 K using the Picht software package, and create a full electrostatic lens design using:
+We'll use the information Agar gives on its thermionic sources to model low-ev (10 eV-ish) electrons boiling off at 2800 K using the Picht software package, and create a full electrostatic lens design using:
 
 - -100V biased Wehnelt Cylinder.
 - A Tungsten Thermionic source of a 60 micrometers cathode radius, and 15 micrometers beam emittance spot
