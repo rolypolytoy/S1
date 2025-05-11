@@ -29,15 +29,15 @@ The C-bend in the flange is in the stead of an optical baffle- the oil vapors wi
 - Simulated and finalized using the open-source electrodynamics package [Picht](https://rolypolytoy.github.io/picht/auto_examples/example_sem_simulation.html#sphx-glr-auto-examples-example-sem-simulation-py).
 - Includes a design for micron-level spot sizes using Wehnelt caps, an electrostatic objective lens, and an electrostatic condenser lens, using full relativistic accuracy and Lorentz force calculations.
 - Image of electrons inside the column design:
-![SEM](https://github.com/user-attachments/assets/bf504bbb-a7cd-4d59-928d-a396407bddf0)
+![SEM](https://github.com/user-attachments/assets/77c80e26-aec4-40b3-aa98-369c81665102)
 
 Close-ups of exact focal spot sizes/spherical or elliptic aberrations at each of the three crossover points:
-![firstcrossover](https://github.com/user-attachments/assets/49694420-81a0-4eff-b8ff-b667e5665d46)
-![SphericalAberration](https://github.com/user-attachments/assets/4b509d0d-4100-4da0-8940-5ef2d9a6622b)
-![image](https://github.com/user-attachments/assets/b57486f5-badc-4deb-8141-71e9fa0a17d8)
+![FirstCrossover](https://github.com/user-attachments/assets/52d47ffe-41ff-4afd-877e-bd703b1337fd)
+![SecondCrossover](https://github.com/user-attachments/assets/eb8d4675-ada9-4a6b-abb3-cbfc5ae6cdfb)
+![Focus](https://github.com/user-attachments/assets/0ec8ab87-5951-41c6-90cf-71778c42e120)
 
-We also have a fully functional voltage divider to get from -10kV and 0V to: -10kV, -7.2kV, -5.1kV, -5kV, and 0kV, all the discrete voltage steps required to safely operate the cathode/anode acceleration, and the voltages for the einzel lenses, with proper [power electronics practices](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/README.md). The voltage divider looks like this:
-![circuit (8)](https://github.com/user-attachments/assets/47eeaeaf-5db7-4988-9f3d-876ba17c3b8a)
+We also have a fully functional voltage divider to get from -10kV and 0V to: -10kV, -7.5kV, -5.1kV, -5kV, and 0kV, all the discrete voltage steps required to safely operate the cathode/anode acceleration, and the voltages for the condenser and objective einzel lenses, with proper [power electronics practices](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/README.md). The voltage divider looks like this:
+![VDivider](https://github.com/user-attachments/assets/5745220d-d192-4224-ab09-967c1daf25c7)
 
 And can be made with the cheaply available 1% tolerance multi-resistor kits while falling entirely within their power consumption limits. Since we use megaohm scale-resistors, the whole voltage divider functions as one massive bleeder resistor, and so is tremendously, tremendously good for safety, all while working with 0.25W resistors due to low maximum current. 
 
