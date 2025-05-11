@@ -107,3 +107,4 @@ Moreover both 'sections' of the Wehnelt cap have an OD of 50 mm. The first part-
 
 ![image](https://github.com/user-attachments/assets/835b41cd-3f02-43fb-acfb-7acf996b3898)
 
+The CAD files of the Wehnelt cylinder are in .FCstd format [here](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/CAD/WehneltCap.FCStd) and in .step format [here](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/CAD/WehneltCap.step).
