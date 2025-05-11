@@ -31,11 +31,6 @@ The C-bend in the flange is in the stead of an optical baffle- the oil vapors wi
 - Image of electrons inside the column design:
 ![SEM](https://github.com/user-attachments/assets/77c80e26-aec4-40b3-aa98-369c81665102)
 
-Close-ups of exact focal spot sizes/spherical or elliptic aberrations at each of the three crossover points:
-![FirstCrossover](https://github.com/user-attachments/assets/52d47ffe-41ff-4afd-877e-bd703b1337fd)
-![SecondCrossover](https://github.com/user-attachments/assets/eb8d4675-ada9-4a6b-abb3-cbfc5ae6cdfb)
-![Focus](https://github.com/user-attachments/assets/0ec8ab87-5951-41c6-90cf-71778c42e120)
-
 We also have a fully functional voltage divider to get from -10kV and 0V to: -10kV, -7.5kV, -5.15kV, -5kV, and 0kV, all the discrete voltage steps required to safely operate the cathode/anode acceleration, and the voltages for the condenser and objective einzel lenses, with proper [power electronics practices](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/README.md). The voltage divider looks like this:
 ![voltagedivider](https://github.com/user-attachments/assets/0e20b421-c97a-441e-b993-39a4674cf6d4)
 
