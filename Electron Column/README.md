@@ -124,4 +124,4 @@ That's an OD of 50mm, ID of 2mm and width of 2 mm, with a voltage of **0 Volts**
 ![image](https://github.com/user-attachments/assets/b943bd0c-d4bc-4a72-9f65-a5408fc4563c)
 You can find its .FCStd [here](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/CAD/Anode.FCStd) and its .step [here](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/CAD/Anode.step). 
 
-The cathode's just the tungsten hairpin filament and needs to be biased at **-5000 Volts** but we'll deal with it a bit later- the tungsten filament and column assembly requires a bit more complex handling, but we'll cross that bridge once we're done designing the einzel lens elements.
+The cathode's just the tungsten hairpin filament and needs to be biased at **-5000 Volts** but we'll deal with it a bit later- the tungsten filament, column assembly, beam-limiting aperture and raster scanning electrodes requires a bit more complex handling, but we'll cross that bridge once we're done designing the einzel lens elements.
