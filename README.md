@@ -37,7 +37,7 @@ Close-ups of exact focal spot sizes/spherical or elliptic aberrations at each of
 ![image](https://github.com/user-attachments/assets/b57486f5-badc-4deb-8141-71e9fa0a17d8)
 
 We also have a fully functional voltage divider to get from -10kV and 0V to: -10kV, -7.2kV, -5.1kV, -5kV, and 0kV, all the discrete voltage steps required to safely operate the cathode/anode acceleration, and the voltages for the einzel lenses, with proper [power electronics practices](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/README.md). The voltage divider looks like this:
-![circuit (8)](https://github.com/user-attachments/assets/47eeaeaf-5db7-4988-9f3d-876ba17c3b8a)
+![VDivider](https://github.com/user-attachments/assets/5745220d-d192-4224-ab09-967c1daf25c7)
 
 And can be made with the cheaply available 1% tolerance multi-resistor kits while falling entirely within their power consumption limits. Since we use megaohm scale-resistors, the whole voltage divider functions as one massive bleeder resistor, and so is tremendously, tremendously good for safety, all while working with 0.25W resistors due to low maximum current. 
 
