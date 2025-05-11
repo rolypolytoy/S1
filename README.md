@@ -119,3 +119,4 @@ Unlike other DIY SEMs, S1 is:
 - Built with reproducible hardware rather than eBay-lifted parts, or exclusive enterprise hardware. This enables reproducibility, performance, and low cost, a difficult trifecta to nail for both DIY-ers and commercial vendors.
 - Fully documented with CAD, BOMs, control logic, and code.
 - Designed for educational and research-grade applications rather than seeing whether a DIY SEM can be made, which is a question that's already been answered.
+- Uses einzel lenses rather than simple cylindrical lenses or electromagnetic lenses- these are accurate enough to be used in FIBs, they're just not used in electron microscopes because high-energy electrons don't bend fast enough in them. But, we're using fixed 5kV electrons for which 7.5kV and 10kV einzel lenses are more than sufficient for.
