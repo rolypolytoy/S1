@@ -12,7 +12,7 @@ wehnelt1 = ElectrodeConfig(
     ap_start=30,
     ap_width=40,
     outer_diameter = 50,
-    voltage=-5150 #biased at -100V in relation to the cathode
+    voltage=-5150 #biased at -150V in relation to the cathode
 )
 wehnelt2 = ElectrodeConfig(
     start=30,
@@ -20,7 +20,7 @@ wehnelt2 = ElectrodeConfig(
     ap_start=45,
     ap_width=10,
     outer_diameter = 50,
-    voltage=-5150 #biased at -100V in relation to the cathode
+    voltage=-5150 #biased at -150V in relation to the cathode
 )
 system.add_electrode(wehnelt1)
 system.add_electrode(wehnelt2)
