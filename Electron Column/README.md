@@ -149,3 +149,8 @@ system.add_einzel_lens(
 )
 ```
 Due to how the finite difference method works and how electrode values are truncated to integers, the condenser lens is made of three 50 mm OD, 48 mm ID, 22 mm long cylinders with the center lens at **-7500V** and the first and third at ground, beginning at z = 70mm with 1mm gaps between the electrodes, and the objective lens with three cylinders of 50 mm OD, 48 mm ID, 18 mm long cylinders with the center lens held at **-10,000V**, the first and third at ground, beginning at z = 141 mm with 1 mm gaps between electrodes. Since- again- PTFE's insulation is conservatively 20 kv/mm we should be more than fine with these gaps with insulation. Additionally Teflon's relative permeability is ~2, which isn't great because ideally it would be 1, but it's thin enough that it shouldn't affect the electric field configurations tremendously- boundary conditions don't often tend to, even unaccounted-for ones. 
+Images:
+![image](https://github.com/user-attachments/assets/169d9819-b872-4566-b4db-9cdb70589170)
+![image](https://github.com/user-attachments/assets/5d8ed272-a1f5-4fff-bc65-d4ba013e25d5)
+
+You can find them in the CAD folder as well.
