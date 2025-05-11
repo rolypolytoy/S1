@@ -125,3 +125,26 @@ That's an OD of 50mm, ID of 2mm and width of 2 mm, with a voltage of **0 Volts**
 You can find its .FCStd [here](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/CAD/Anode.FCStd) and its .step [here](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/CAD/Anode.step). 
 
 The cathode's just the tungsten hairpin filament and needs to be biased at **-5000 Volts** but we'll deal with it a bit later- the tungsten filament, column assembly, beam-limiting aperture and raster scanning electrodes requires a bit more complex handling, but we'll cross that bridge once we're done designing the einzel lens elements.
+
+The Einzel Lenses have the following code:
+```python
+#Condenser Lens- In between the first and second crossover point, provides initial focusing
+system.add_einzel_lens(
+    position= 70.0,
+    width=70.0,
+    aperture_center=50.0,
+    aperture_width=48.0,
+    outer_diameter=50.0,
+    focus_voltage=-7500
+)
+
+#Objective Lens- Provides final focusing mere millimeters after its end
+system.add_einzel_lens(
+    position= 141.0,
+    width=58.0,
+    aperture_center=50.0,
+    aperture_width=48.0,
+    outer_diameter=50.0,
+    focus_voltage=-10000
+)
+```
