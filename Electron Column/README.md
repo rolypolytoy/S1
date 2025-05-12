@@ -155,6 +155,6 @@ Images:
 ![image](https://github.com/user-attachments/assets/169d9819-b872-4566-b4db-9cdb70589170)
 ![image](https://github.com/user-attachments/assets/5d8ed272-a1f5-4fff-bc65-d4ba013e25d5)
 
-You can find them in the CAD folder as well.
+You can find them in the CAD folder as well as Condenser.step, Objective.step and EinzelInsulator.step. 
 
 Now, alignment and assembly is of absolutely tremendous importance here and so we need to figure out how to integrate all of this most effectively.
