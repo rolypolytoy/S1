@@ -157,4 +157,4 @@ Images:
 
 You can find them in the CAD folder as well as Condenser.step, Objective.step and EinzelInsulator.step. 
 
-Now, alignment and assembly is of absolutely tremendous importance here and so we need to figure out how to integrate all of this most effectively.
+Now, alignment and assembly is of absolutely tremendous importance here and so we need to figure out how to integrate all of this most effectively- make all the mechanical and electrical components of the column work together.
