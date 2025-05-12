@@ -156,3 +156,5 @@ Images:
 ![image](https://github.com/user-attachments/assets/5d8ed272-a1f5-4fff-bc65-d4ba013e25d5)
 
 You can find them in the CAD folder as well.
+
+Now, alignment and assembly is of absolutely tremendous importance here and so we need to figure out how to integrate all of this most effectively.
