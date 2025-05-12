@@ -6,9 +6,8 @@ Because Picht already supports ions, and because making [custom field-emission t
 
 | Metric            | Estimated     | Achieved | Method                  |
 | ----------------- | ---------- | -------- | ----------------------- |
-| Beam Spot Size    | <1000 nm     | TBD      | Picht calculations, Pt-Ir 50 μm beam limiting aperture at crossover |
+| Ultimate Resolution    | <100 μm     | TBD      | Picht calculations, Pt-Ir beam limiting aperture at crossover |
 | Vacuum Pressure   | <10⁻⁵ Torr | TBD      | 1e-8 mbar vapor-pressure vacuum oil ([Ultragrade 19](https://www.ajvs.com/edwards-ultragrade-19-hydrocarbon-vacuum-pump-oil-15494)), HV Diffusion Pump      |
-| Resolution        | <500 nm       | TBD      | Deconvolution, frame-averaging, contrast-based autofocus, and digital signals processing (DSP)      |
 
 ---
 
@@ -30,11 +29,6 @@ The C-bend in the flange is in the stead of an optical baffle- the oil vapors wi
 - Includes a design for micron-level spot sizes using Wehnelt caps, an electrostatic objective lens, and an electrostatic condenser lens, using full relativistic accuracy and Lorentz force calculations.
 - Image of electrons inside the column design:
 ![SEM](https://github.com/user-attachments/assets/77c80e26-aec4-40b3-aa98-369c81665102)
-
-Close-ups of exact focal spot sizes/spherical or elliptic aberrations at each of the three crossover points:
-![FirstCrossover](https://github.com/user-attachments/assets/52d47ffe-41ff-4afd-877e-bd703b1337fd)
-![SecondCrossover](https://github.com/user-attachments/assets/eb8d4675-ada9-4a6b-abb3-cbfc5ae6cdfb)
-![Focus](https://github.com/user-attachments/assets/0ec8ab87-5951-41c6-90cf-71778c42e120)
 
 We also have a fully functional voltage divider to get from -10kV and 0V to: -10kV, -7.5kV, -5.15kV, -5kV, and 0kV, all the discrete voltage steps required to safely operate the cathode/anode acceleration, and the voltages for the condenser and objective einzel lenses, with proper [power electronics practices](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/README.md). The voltage divider looks like this:
 ![voltagedivider](https://github.com/user-attachments/assets/0e20b421-c97a-441e-b993-39a4674cf6d4)
@@ -112,7 +106,7 @@ The main cost-savers were making a custom diffusion pump design rather than lift
 Here's what I still need to implement:
 
 - Functioning code for the microcontroller to run on, and a companion desktop app that integrates with any OS
-- CAD and Assembly files for the mechanical portions
+- CAD files for the mechanical portions
 - Assembly and proof of functionality.
 
 ---
@@ -124,3 +118,4 @@ Unlike other DIY SEMs, S1 is:
 - Built with reproducible hardware rather than eBay-lifted parts, or exclusive enterprise hardware. This enables reproducibility, performance, and low cost, a difficult trifecta to nail for both DIY-ers and commercial vendors.
 - Fully documented with CAD, BOMs, control logic, and code.
 - Designed for educational and research-grade applications rather than seeing whether a DIY SEM can be made, which is a question that's already been answered.
+- Uses einzel lenses rather than simple cylindrical lenses or electromagnetic lenses- these are accurate enough to be used in FIBs, they're just not used in electron microscopes because high-energy electrons don't bend fast enough in them. But, we're using fixed 5kV electrons for which 7.5kV and 10kV einzel lenses are more than sufficient for.

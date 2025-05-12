@@ -63,11 +63,13 @@ Focal length: From 40.65 mm to 40.89 mm, with focal diameter/spot size of 240 mi
 
 Focal length: From 140.10 mm to 140.39 mm, with focal diameter/spot size of 290 micrometers and a center of focus at 140.25 mm.
 
+If we place a beam limiting aperture at 142 mm, where the beam's radial spot size is from 48.6 to 51.4 mm for a width of 2.8 mm. If we place a beam limiting aperture of 100 micrometers there, we get a (0.1/2.8) squared, or a 784-times reduction in beam current (from around 200 microamperes to around 250 nanoamperes) for a twenty-eight fold reduction in beam spot size. 
+
 
 **Final Focus**
 ![Focus](https://github.com/user-attachments/assets/0ec8ab87-5951-41c6-90cf-71778c42e120)
 
-Focal length: From 201.52 mm to 203.02 mm, with focal diameter/spot size of 1500 micrometers and a center of focus at 202.27mm.
+Focal length: From 201.52 mm to 203.02 mm, with focal diameter/spot size of 1500 micrometers and a center of focus at 202.27mm. The actual final focal spot size will be closer to 1500/28 micrometers or ~50 micrometers of a final spot size. This is, honestly, not great, but with stuff like simple deconvolution and frame averaging it's not unreasonable to hope for ~25 micrometers of resolution. Whether this is reached or not remains to be seen, but low-micron level resolution is definitely more than reasonable of an assumption to make at this stage.
 
 ## Beam Assembly (CAD)
 Now, we need to make the beam assembly based on this validated design. We'll use aluminium 6063 for any electrically active components (to minimize the final weight of the desktop SEM). We also need a machinable insulator material- PTFE is great for this because it has at the **lowest end** a dielectric strength of [20kV/mm](https://polyfluoroltd.com/blog/the-insane-electrical-properties-of-ptfe-and-how-to-interpret-them/), which means 1 mm thick insulation with PTFE will have a 2x safety factor with even the most high-voltage differential einzel lens, which is our objective lens with a middle voltage of -10kV with the other two electrodes at ground. [PTFE's](https://en.wikipedia.org/wiki/Materials_for_use_in_vacuum#Plastics) also completely fine to use in HV conditions, and is [machinable](https://fluorocarbon.co.uk/resources/blog/a-guide-to-machining-ptfe/) though with some expansion/creep issues, which is fine because no critical positioning aspects are affected by PTFE. We'll use machined shoulders to make a column using the dimensions from the SEM analysis we've done so far.
@@ -154,3 +156,5 @@ Images:
 ![image](https://github.com/user-attachments/assets/5d8ed272-a1f5-4fff-bc65-d4ba013e25d5)
 
 You can find them in the CAD folder as well.
+
+Now, alignment and assembly is of absolutely tremendous importance here and so we need to figure out how to integrate all of this most effectively.
