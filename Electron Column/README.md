@@ -3,8 +3,8 @@ Our electron column uses an off-the-shelf tungsten thermionic filament bought fr
 
 We'll use the information Agar gives on its thermionic sources to model low-ev (0.5 eV-ish) electrons boiling off at 2800 K using the Picht software package, and create a full electrostatic lens design using:
 
-- -100V biased Wehnelt Cylinder.
-- A Tungsten Thermionic source of a 60 micrometers cathode radius, and 25 micrometers initial beam spread radially
+- -200V biased Wehnelt Cylinder.
+- A Tungsten Thermionic source with a 60 micrometers cathode radius, and 25 micrometers initial beam spread radially
 
 An electrostatic condenser lens, and an electrostatic objective lens- we're building off the [Applied Science SEM proof-of-concept](https://www.youtube.com/watch?v=VdjYVF4a6iU&t=467s) which already uses electrostatic lenses, but we use much higher voltages, and einzel lenses instead of cylindrical lenses, and simulate the column in its entirety.
 
