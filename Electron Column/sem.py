@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 system = IonOpticsSystem(nr=100, nz=400, axial_size=0.4, radial_size = 0.1)
 
+#make it work with 10 keV now.
 
 wehnelt1 = ElectrodeConfig(
     start=30,
