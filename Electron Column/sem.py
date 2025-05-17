@@ -47,7 +47,7 @@ condenser = MagneticLensConfig(
     ap_start=30,
     ap_width=40,
     outer_diameter = 50,
-    mu_r=1000,
+    mu_r=4000,
     mmf=200
 )
 system.add_magnetic_lens(condenser)
@@ -58,7 +58,7 @@ objective = MagneticLensConfig(
     ap_start=30,
     ap_width=40,
     outer_diameter = 50,
-    mu_r=1000,
+    mu_r=4000,
     mmf=250
 )
 system.add_magnetic_lens(objective)
