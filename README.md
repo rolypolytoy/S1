@@ -32,8 +32,8 @@ The C-bend in the flange is in the stead of an optical baffle- the oil vapors wi
 ![SEM_E_Field](https://github.com/user-attachments/assets/be48b182-462a-47cc-afe4-e381d410c67e)
 ![SEM_B_Field](https://github.com/user-attachments/assets/79333714-5cc1-45cf-8f2c-398a004bda60)
 
-
 ### Detection, Control, and Embedded Systems
+I'm on this part at the moment. 
 A  low-cost Everhart-Thornley detector is outlined below:
 
 - **Microcontroller**:  
@@ -41,20 +41,15 @@ A  low-cost Everhart-Thornley detector is outlined below:
   - Adequate computing power for onboard signal processing, like frame averaging or deconvolution.
   - Works with the Arduino framework which makes coding for it a lot easier.
 
-- **Detector**:  
+- **Detector Stuff**:  
   - [Plastic scintillator with 425 nm emission](https://www.alibaba.com/product-detail/Polystyrene-Plastic-scintillator-material-equivalent-EJ_1601298622046.html?spm=a2700.7724857.0.0.6c196c9eovIgdM)
   - [Onsemi SiPM with 420 nm peak sensitivity](https://www.mouser.in/ProductDetail/onsemi/MICROFC-30020-SMT-TR1?qs=byeeYqUIh0PslEkIwO7UpQ%3D%3D)
-
-- **Amplification & Shaping**:  
-  - **[Cremat CR-110](https://www.amazon.ae/CR-113-R2-1-Charge-Sensitive-preamplifier-Module/dp/B07BCQSBD8)** charge-sensitive preamplifier (µs-long pulses, 7 ns rise time) to read current from the silicon photomultiplier  
-  - **[Cremat CR-200-500ns](https://www.amazon.ae/Cremat-Inc-CR-200-500ns-R2-1-Shaping-Amplifier/dp/B07BD28Y7R?)** pulse shaper (500 ns pulses) so the ADC can read from it
-
-- **Data Acquisition**:  
+  - [Cremat CR-110](https://www.amazon.ae/CR-113-R2-1-Charge-Sensitive-preamplifier-Module/dp/B07BCQSBD8)** charge-sensitive preamplifier (µs-long pulses, 7 ns rise time) to read current from the silicon photomultiplier  
+  - [Cremat CR-200-500ns](https://www.amazon.ae/Cremat-Inc-CR-200-500ns-R2-1-Shaping-Amplifier/dp/B07BD28Y7R?)** pulse shaper (500 ns pulses) so the ADC can read from it
   - The [AD7626BCPZ](https://www.mouser.in/ProductDetail/Analog-Devices/AD7626BCPZ-RL7?qs=%2FtpEQrCGXCwjx1S0Wpoj8A%3D%3D)- a 10 MSPS ADC (exceeds the 2 MSPS requirement for 500 ns pulses, with roughly 5 samples/pulse- good for SNR)
-
-- **Raster Scanning**:  
   - The [AD5754BREZ](https://www.mouser.in/ProductDetail/Analog-Devices/AD5754BREZ?qs=NmRFExCfTkE9WVZYrblgWQ%3D%3D)- a ±10V, 16-bit quad-channel DAC for analog control of the XY raster scan patterns
   - Electrostatic deflection plates for beam movement and magnification
+  - Should probably mention what driver I'm going to use for the NEMA 11 motors on the stages and how I'll drive the V_SOURCE for all of these and where the application and .ino code for these is. Coming soon, not to worry.
 
 All [component datasheets](https://github.com/rolypolytoy/S1/tree/main/Detection%20%26%20Control) and the full [bill of materials](https://github.com/rolypolytoy/S1/blob/main/Bill%20of%20Materials.docx) are included in this repository.
 
@@ -86,18 +81,6 @@ All [component datasheets](https://github.com/rolypolytoy/S1/tree/main/Detection
 | **Release-ready version**           | 🟡 **Q2 2025** |
 ---
 
-## Estimated Cost
-
-A preliminary bill of materials puts the total project cost at approximately $2200 USD, including:
-
-- High vacuum components
-- Beam optics
-- Detector electronics
-- Embedded control system
-- Mechanical frame and assembly
-
-The main cost-savers were making a custom diffusion pump design rather than lifting turbomol pumps from eBay- which also does wonders for reproducibility- as well as using electrostatic lenses rather than electromagnetic lenses, using tungsten thermionic sources, and perhaps most importantly using silicon photomultipliers instead of vacuum-tube photomultipliers. Each one of these changes reduces hundreds, thousands, or tens of thousands of dollars in unit costs using technological advances, without even compromising on performance. We also use only one secondary electron detector instead of SE, BSE, and a lot of redundant detectors. This allows us to make it cheap and high-quality, while still providing feature-complete, crisp imaging.
-
 ---
 ## Checklist of What Remains
 Here's what I still need to implement:
@@ -105,14 +88,3 @@ Here's what I still need to implement:
 - Functioning code for the microcontroller to run on, and a companion desktop app that integrates with any OS
 - CAD files for the mechanical portions
 - Assembly and proof of functionality.
-
----
-## Why S1 Is Different
-
-Unlike other DIY SEMs, S1 is:
-
-- Based on first-principles simulations (via Picht), which is a standard step in industrial prototyping and experimental physics research.
-- Built with reproducible hardware rather than eBay-lifted parts, or exclusive enterprise hardware. This enables reproducibility, performance, and low cost, a difficult trifecta to nail for both DIY-ers and commercial vendors.
-- Fully documented with CAD, BOMs, control logic, and code.
-- Designed for educational and research-grade applications rather than seeing whether a DIY SEM can be made, which is a question that's already been answered.
-- Uses einzel lenses rather than simple cylindrical lenses or electromagnetic lenses- these are accurate enough to be used in FIBs, they're just not used in electron microscopes because high-energy electrons don't bend fast enough in them. But, we're using fixed 5kV electrons for which 7.5kV and 10kV einzel lenses are more than sufficient for.
