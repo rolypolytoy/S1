@@ -26,7 +26,7 @@ The C-bend in the flange is in the stead of an optical baffle- the oil vapors wi
 
 ### [Electron Column](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column)
 - Simulated and finalized using the open-source electrodynamics package [Picht](https://rolypolytoy.github.io/picht/auto_examples/example_sem_simulation.html#sphx-glr-auto-examples-example-sem-simulation-py).
-- Includes a design for micron-level spot sizes using Wehnelt caps, an electrostatic objective lens, and an electrostatic condenser lens, using full relativistic accuracy and Lorentz force calculations.
+- Includes a design for micron-level spot sizes using Wehnelt caps, an objective lens, and a condenser lens.
 - Image of electrons inside the column design:
 ![SEM](https://github.com/user-attachments/assets/9d305eb8-6272-438c-818d-5dedf85e9984)
 ![SEM_E_Field](https://github.com/user-attachments/assets/be48b182-462a-47cc-afe4-e381d410c67e)
