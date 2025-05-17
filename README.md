@@ -28,12 +28,9 @@ The C-bend in the flange is in the stead of an optical baffle- the oil vapors wi
 - Simulated and finalized using the open-source electrodynamics package [Picht](https://rolypolytoy.github.io/picht/auto_examples/example_sem_simulation.html#sphx-glr-auto-examples-example-sem-simulation-py).
 - Includes a design for micron-level spot sizes using Wehnelt caps, an electrostatic objective lens, and an electrostatic condenser lens, using full relativistic accuracy and Lorentz force calculations.
 - Image of electrons inside the column design:
-![SEM](https://github.com/user-attachments/assets/77c80e26-aec4-40b3-aa98-369c81665102)
-
-We also have a fully functional voltage divider to get from -10kV and 0V to: -10kV, -7.5kV, -5.15kV, -5kV, and 0kV, all the discrete voltage steps required to safely operate the cathode/anode acceleration, and the voltages for the condenser and objective einzel lenses, with proper [power electronics practices](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column/README.md). The voltage divider looks like this:
-![voltagedivider](https://github.com/user-attachments/assets/0e20b421-c97a-441e-b993-39a4674cf6d4)
-
-And can be made with the cheaply available 1% tolerance multi-resistor kits while falling entirely within their power consumption limits. Since we use megaohm scale-resistors, the whole voltage divider functions as one massive bleeder resistor, and so is tremendously, tremendously good for safety, all while working with 0.25W resistors due to low maximum current. 
+![SEM](https://github.com/user-attachments/assets/9d305eb8-6272-438c-818d-5dedf85e9984)
+![SEM_E_Field](https://github.com/user-attachments/assets/be48b182-462a-47cc-afe4-e381d410c67e)
+![SEM_B_Field](https://github.com/user-attachments/assets/79333714-5cc1-45cf-8f2c-398a004bda60)
 
 
 ### Detection, Control, and Embedded Systems
