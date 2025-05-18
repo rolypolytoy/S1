@@ -62,3 +62,5 @@ Apart for the -10kV Wehnelt cylinder, -9.8kV cathode, and grounded anode, there 
 We need 200 ampere-turns on the condenser lens and 250 ampere-turns on the objective lens, pretty much. We'll give 2 A of current, do 100 turns on the condenser lens and 125 on the objective lens, and that's our full electron optics system. We'll use 20 meters of 14 AWG enameled copper wire to minimize power dissipation losses from heating so we don't need any cooling at all. We'll get exactly 2A by measuring the exact length of wire used in each case, finding the exact resistance, and I'll use the Teensy 4.1's DAC1 and DAC2 for this purpose (we can precisely program the values after the fact for every machine so this is a non-issue and 0 to 3.3V is more than enough range, the resistance of 3.2 * 0.05 * 250 meters of 14 AWG wire (a bit over pi times the diameter of the core times number turns to get the length) is 0.33 Ohms.)
 
 Well, that's all there is to it. Electron column's fully done. 
+
+Of course, I'll make sure to add knobs for the voltage of the electrons and the MMF of each lens so I can adjust things on the fly.
