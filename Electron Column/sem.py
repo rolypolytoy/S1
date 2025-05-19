@@ -1,77 +1,18 @@
 import numpy as np
-from picht import IonOpticsSystem, ElectrodeConfig, MagneticLensConfig, Export
+from picht import ElectronOptics, ElectrodeConfig, MagneticLensConfig, Export
 import matplotlib.pyplot as plt
 
-system = IonOpticsSystem(nr=100, nz=400, axial_size=0.4, radial_size = 0.1)
-
-wehnelt1 = ElectrodeConfig(
-    start=30,
-    width=30,
-    ap_start=30,
-    ap_width=40,
-    outer_diameter = 50,
-    voltage=-10000
-)
-wehnelt2 = ElectrodeConfig(
-    start=60,
-    width=5,
-    ap_start=45,
-    ap_width=10,
-    outer_diameter = 50,
-    voltage=-10000
-)
-system.add_electrode(wehnelt1)
-system.add_electrode(wehnelt2)
-
-anode = ElectrodeConfig(
-    start=90,
-    width = 1,
-    ap_start=48,
-    ap_width=4,
-    outer_diameter = 50,
-    voltage=0
-)
-cathode = ElectrodeConfig(
-    start=54,
-    width = 1,
-    ap_start=50,
-    ap_width=0,
-    outer_diameter = 2,
-    voltage=-9800
-)
-system.add_electrode(anode)
-system.add_electrode(cathode)
-condenser = MagneticLensConfig(
-    start=130,
-    length=50,  
-    ap_start=30,
-    ap_width=40,
-    outer_diameter = 50,
-    mu_r=3183,
-    mmf=200
-)
-system.add_magnetic_lens(condenser)
-
-objective = MagneticLensConfig(
-    start=200,
-    length=50,  
-    ap_start=30,
-    ap_width=40,
-    outer_diameter = 50,
-    mu_r=2865,
-    mmf=250
-)
-system.add_magnetic_lens(objective)
-
+system = ElectronOptics(nr=200, nz=400, axial_size=0.1, radial_size=0.1)
 system.solve_fields()
 
+#Electron Gun's Beam.
 trajectories = system.simulate_beam(
-    energy_eV= 0.5,  
-    start_z=0.055,
-    r_range=(0.0499875, 0.0500125),
-    angle_range=(-2, 2),
-    num_particles=100, 
-    simulation_time=2e-8
+    energy_eV= 9800,  
+    start_z=0.0456210,
+    r_range=(0.04996, 0.050004),
+    angle_range=(-0.15, 0.15),
+    num_particles=10, 
+    simulation_time=6e-9
 )
 
 figure = system.visualize_system(
