@@ -59,7 +59,7 @@ Additionally I've finished the CAD for the electron column including the Wehnelt
 I've fully reconstructed the specs from the paper:
 ![image](https://github.com/user-attachments/assets/b0a0304c-8fe1-4417-b519-8f8921494e14)
 
-All the sizes are exactly as taken down to the mm from the paper. The diagram it gives is:
+This is in the repo as ElectronColumn.FCStd, of course. All the sizes are exactly as taken down to the mm from the paper. The diagram the paper gives looks similar:
 
 ![image](https://github.com/user-attachments/assets/e7585053-3ab1-4029-92b3-54e0bd00bb6f)
 
