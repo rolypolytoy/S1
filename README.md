@@ -6,7 +6,7 @@ Because Picht already supports ions, and because making [custom field-emission t
 
 | Metric            | Estimated     | Achieved | Method                  |
 | ----------------- | ---------- | -------- | ----------------------- |
-| Ultimate Resolution    | <1 μm     | TBD      | Reconstructing the Paper |
+| Ultimate Resolution    | ~10nm     | TBD      | Reconstructing the Paper |
 | Vacuum Pressure   | <10⁻⁵ Torr | TBD      | HV Diffusion Pump, Embedded Pressure Gauge.|
 
 ---
