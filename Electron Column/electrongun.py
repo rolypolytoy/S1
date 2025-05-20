@@ -42,14 +42,14 @@ cathode = ElectrodeConfig(
 system.add_electrode(anode)
 system.add_electrode(cathode)
 #Electron Gun- Finished.
-"""
+
 system.solve_fields()
 
 trajectories = system.simulate_beam(
     energy_eV= 0.5,  
     start_z=0.025,
     r_range=(0.0049875, 0.0050125),
-    angle_range=(-2, 2),
+    angle_range=(-1, 1),
     num_particles=10, 
     simulation_time=1e-7
 )
@@ -61,6 +61,3 @@ figure = system.visualize_system(
     trajectories=trajectories)
 
 plt.show()
-"""
-exporter = Export(system)
-exporter.cad_export()
