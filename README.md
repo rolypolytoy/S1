@@ -6,8 +6,8 @@ Because Picht already supports ions, and because making [custom field-emission t
 
 | Metric            | Estimated     | Achieved | Method                  |
 | ----------------- | ---------- | -------- | ----------------------- |
-| Ultimate Resolution    | <1 μm     | TBD      | Picht simulation |
-| Vacuum Pressure   | <10⁻⁵ Torr | TBD      | 1e-8 mbar vapor-pressure vacuum oil ([Ultragrade 19](https://www.ajvs.com/edwards-ultragrade-19-hydrocarbon-vacuum-pump-oil-15494)), HV Diffusion Pump      |
+| Ultimate Resolution    | <1 μm     | TBD      | Reconstructing the Paper |
+| Vacuum Pressure   | <10⁻⁵ Torr | TBD      | HV Diffusion Pump, Embedded Pressure Gauge.|
 
 ---
 
@@ -54,14 +54,14 @@ A  low-cost Everhart-Thornley detector is outlined below:
 All [component datasheets](https://github.com/rolypolytoy/S1/tree/main/Detection%20%26%20Control) and the full [bill of materials](https://github.com/rolypolytoy/S1/blob/main/Bill%20of%20Materials.docx) are included in this repository.
 
 ### Frame, Stage, and CAD
-- In progress.
-- Parametric CAD models underway for:
-  
-  - **Mechanical frame**:
-    - The assembly is really just going to be a few 15 mm-thick 6063 plates screwed together in HV-safe methods. Full assembly instructions for this coming soon.
-      
-  - **Sliding vacuum doors**:
-    - We plan to use dovetail doors and use a line of Viton at the base + a clamp to make a secure, cheap, and professional HV sliding door. CAD files for this coming soon.
+Update: I found an [old paper](https://github.com/rolypolytoy/S1/blob/main/SEM_Design.pdf) which literally outlines how to design a 10-nm resolution SEM with exact current, current densities (so of course we can reconstruct the gauge they used, which I did, and it's 14 AWG), condenser 1, 2, and objective lens specs, beam column design, full ray tracing with commercial FEM, and so the design work has been done already. Of course this means all the work we did in the electron column is useless but honestly basically guaranteeing nm-scale resolution is worthwhile. Even if we don't get 10 nm resolution, it's going to get sub-micron resolution.
+
+Additionally I've finished the CAD for the electron column including the Wehnelt cylinder, anodes, and lenses. We're using M19 (no grain orientation) silicon steel for most housing and ferromagnetic parts. Cheaper than iron, works well enough, permeability is in the low to mid thousands so that's good. M5 for the pole pieces- it's grain oriented so we need to machine it in the right orientation but we just need three of those. It can have >20,000 as its relative permeability in the right direction, so it's worthwhile for the pole piece and probably good enough. We'll need ~500 meters of 14 AWG wire so we'll use aluminium- we're way below its ampacity so it's not a concern at all, and I don't want to either 1- buy scrap transformer wire like all the cool kids (read: Michio Kaku as a teen) did, because the quality is really bad or 2- buy copper wire when it's not necessary, because it's maybe 5x more expensive. 
+
+I've fully reconstructed the specs from the paper:
+![image](https://github.com/user-attachments/assets/b0a0304c-8fe1-4417-b519-8f8921494e14)
+
+Now the frame and modular parts need to be made, embedded code needs to be written, and... that's it. The guarantee that this will work is in a way already there because we have a readymade design. i guess I just made an electrodynamics library for nothing but this is the kind of 'my past work is useless' you like to see. 
       
   - **Cable feedthroughs**:
     -   Our current approach to making flanges is to, when the frame is being machined, make precise holes in the exterior, pass silicone wires through, and use vacuum-tolerant epoxy. This is expensive, but believe it or not, significantly less expensive than buying feedthroughs for 230VAC, 24VDC, USB, etc, etc. We use [Loctite Stycast-2850](https://in.rsdelivers.com/product/loctite/loctite-stycast-2850-ft-quartkit/loctite-loctite-stycast-2850-ft-quartkit-black-1/2349630)- a state of the art vacuum epoxy, which means this "makeshift" setup is actually more than satisfactory for HV, and really only gets iffy when you get down to UHV. Additionally- silicone doesn't outgas a lot, so using silicone-insulated wires isn't a no-no, but even if it is, taping over it with PTFE tape is an extremely easy (and cheap) workaround which doesn't compromise anything, or introduce any irregularities into the system.
@@ -83,5 +83,4 @@ All [component datasheets](https://github.com/rolypolytoy/S1/tree/main/Detection
 Here's what I still need to implement:
 
 - Functioning code for the microcontroller to run on, and a companion desktop app that integrates with any OS
-- CAD files for the mechanical portions
 - Assembly and proof of functionality.
