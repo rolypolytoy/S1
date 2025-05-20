@@ -60,6 +60,7 @@ I've fully reconstructed the specs from the paper:
 ![image](https://github.com/user-attachments/assets/b0a0304c-8fe1-4417-b519-8f8921494e14)
 
 All the sizes are exactly as taken down to the mm from the paper. The diagram it gives is:
+
 ![image](https://github.com/user-attachments/assets/e7585053-3ab1-4029-92b3-54e0bd00bb6f)
 
 Now the frame and modular parts need to be made, embedded code needs to be written, and... that's it. The guarantee that this will work is in a way already there because we have a readymade design. i guess I just made an electrodynamics library for nothing but this is the kind of 'my past work is useless' you like to see. 
