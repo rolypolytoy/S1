@@ -82,5 +82,5 @@ Now the frame and modular parts need to be made, embedded code needs to be writt
 ## Checklist of What Remains
 Here's what I still need to implement:
 
-- Functioning code for the microcontroller to run on, and a companion desktop app that integrates with any OS
-- Assembly and proof of functionality.
+- Functioning code for the microcontroller to run on, and a companion desktop app that integrates with any OS. Flutter for the app, Arduino framework for the code (thx teensyduino).
+- Images from the SEM.
