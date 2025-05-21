@@ -11,3 +11,5 @@ Finally- FCStd files for the Diffusion Pump are uploaded [here](https://github.c
 For the O-ring, buy 130 mm ID, 2 mm thickness [Nitrile O-rings](https://www.amazon.com/uxcell-Rings-Nitrile-125-2mm-Diameter/dp/B07HGCCHNZ) to seal the flange between the diffusion pump and the connector to the vacuum pump.
 
 The holes on the side of the flanges are around 6.4 mm in diameter, so use 8 M6 to tighten, once the O-ring is inside the groove, and the connector has been welded to the frame. 
+
+To do: improve diffusion pump design, ensure nichrome wire can do 1kW of power and heat it enough for truly good pumping, and have the inverted u-shape and DFM for the pump. I.e. design the cylinder to be holed + screwed rather than anything else and machine/attach the U-bend bit separately.
