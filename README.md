@@ -20,18 +20,23 @@ S1 is composed of four core modules:
   
 ![View](https://github.com/user-attachments/assets/2c7445c5-50e3-48b4-bc69-a5a0268d8c9f)
 
-The C-bend in the flange is in the stead of an optical baffle- the oil vapors will condense inside the pipe rather than go inside the chamber. This is a minor risk and it's not often mitigated in prototype designs, but I've mitigated it by adding it into the piping rather than an entirely separate component.
+To reach the <1e-5 torr pressures required to operate a thermionic tungsten source, we need a roughing pump and a high vacuum pump.
 
-### [Electron Column](https://github.com/rolypolytoy/S1/blob/main/Electron%20Column)
-- Simulated and finalized using the open-source electrodynamics package [Picht](https://rolypolytoy.github.io/picht/auto_examples/example_sem_simulation.html#sphx-glr-auto-examples-example-sem-simulation-py).
-- Includes a design for micron-level spot sizes using Wehnelt caps, an objective lens, and a condenser lens.
-- Image of electrons inside the column design:
-![SEM](https://github.com/user-attachments/assets/9d305eb8-6272-438c-818d-5dedf85e9984)
-![SEM_E_Field](https://github.com/user-attachments/assets/be48b182-462a-47cc-afe4-e381d410c67e)
-![SEM_B_Field](https://github.com/user-attachments/assets/79333714-5cc1-45cf-8f2c-398a004bda60)
+[Roughing pumps](https://www.amazon.com/Orion-Motor-Tech-Conditioner-Servicing/dp/B08P1W6Z8D) can be bought quite cheaply on amazon for about $70, and can pump down to the 1e-2 torr order of magnitude, which is good enough as a backing pump for most high-vacuum pumps. This one is 37.5 microns, which converts to around 3e-2 torr, which is good enough for diffusion pumps.
 
-### Detection, Control, and Embedded Systems
-I'm on this part at the moment. 
+Most pumps of this kind have an around 1/4th inch diameter outlet, and so you can buy 1/4th inch ID [vinyl tubing](https://www.amazon.com/Flexible-Lightweight-Plastic-Chemical-Resistant/dp/B09Y5R8SSL). 
+
+Finally- FCStd files for the Diffusion Pump are uploaded [here](https://github.com/rolypolytoy/S1/blob/main/Vacuum%20Integrity) and at the [Diffusion Pump](https://github.com/rolypolytoy/diffusion_pump) project. It's already built to be integrated with 1/4th inch vinyl pipes, so simply slip the pipe around the machined diffusion pump. 
+
+For the O-ring, buy 130 mm ID, 2 mm thickness [Nitrile O-rings](https://www.amazon.com/uxcell-Rings-Nitrile-125-2mm-Diameter/dp/B07HGCCHNZ) to seal the flange between the diffusion pump and the connector to the vacuum pump.
+
+The holes on the side of the flanges are around 6.4 mm in diameter, so use 8 M6 to tighten, once the O-ring is inside the groove, and the connector has been welded to the frame. 
+
+We'll use the [KJL 704](https://www.agarscientific.com/vacuum-diffusion-pump-fluids) diffusion pump oil for 125.77 pounds from agar scientific, which has an untrapped ultimate vacuum of 1e-7 to 1e-8 torr and trapped of 1e-11 torr. Kurt J Lesker also sells 500 ccs directly for [120 dollars](https://www.lesker.com/newweb/fluids/diffpumpoils-silicone-kjlc/), and so this is really good cost-price.
+
+The nichrome wire I'm using can heat up to 800W so we're good in terms of heating since resistive heating implements are the only implements with 100% efficiency, and 800W is more than enough to heat a diffusion pump of this size and we're using a [server fan](https://www.amazon.in/Delta-Electronics-AFB1212GHE-CF00-120x120x-connector/dp/B004X2M2GG) with 241 CFM- it's noisy but it's better than a water cooling system I know that, so about 200W of dissipation might be viable.
+
+### Embedded Systems
 A  low-cost Everhart-Thornley detector is outlined below:
 
 - **Microcontroller**:  
@@ -51,7 +56,7 @@ A  low-cost Everhart-Thornley detector is outlined below:
 
 All [component datasheets](https://github.com/rolypolytoy/S1/tree/main/Detection%20%26%20Control) and the full [bill of materials](https://github.com/rolypolytoy/S1/blob/main/Bill%20of%20Materials.docx) are included in this repository.
 
-### Frame, Stage, and CAD
+### CAD
 Update: I found an [old paper](https://github.com/rolypolytoy/S1/blob/main/SEM_Design.pdf) which literally outlines how to design a 10-nm resolution SEM with exact current, current densities (so of course we can reconstruct the gauge they used, which I did, and it's 14 AWG), condenser 1, 2, and objective lens specs, beam column design, full ray tracing with commercial FEM, and so the design work has been done already. Of course this means all the work we did in the electron column is useless but honestly basically guaranteeing nm-scale resolution is worthwhile. Even if we don't get 10 nm resolution, it's going to get sub-micron resolution.
 
 Additionally I've finished the CAD for the electron column including the Wehnelt cylinder, anodes, and lenses. We're using M19 (no grain orientation) silicon steel for most housing and ferromagnetic parts. Cheaper than iron, works well enough, permeability is in the low to mid thousands so that's good. M5 for the pole pieces- it's grain oriented so we need to machine it in the right orientation but we just need three of those. It can have >20,000 as its relative permeability in the right direction, so it's worthwhile for the pole piece and probably good enough. We'll need ~500 meters of 14 AWG wire so we'll use aluminium- we're way below its ampacity so it's not a concern at all, and I don't want to either 1- buy scrap transformer wire like all the cool kids (read: Michio Kaku as a teen) did, because the quality is really bad or 2- buy copper wire when it's not necessary, because it's maybe 5x more expensive. 
