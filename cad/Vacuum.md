@@ -12,4 +12,6 @@ For the O-ring, buy 130 mm ID, 2 mm thickness [Nitrile O-rings](https://www.amaz
 
 The holes on the side of the flanges are around 6.4 mm in diameter, so use 8 M6 to tighten, once the O-ring is inside the groove, and the connector has been welded to the frame. 
 
+We'll use the [KJL 704](https://www.agarscientific.com/vacuum-diffusion-pump-fluids) diffusion pump oil for 125.77 pounds from agar scientific, which has an untrapped ultimate vacuum of 1e-7 to 1e-8 torr and trapped of 1e-11 torr. Kurt J Lesker also sells 500 ccs directly for [120 dollars](https://www.lesker.com/newweb/fluids/diffpumpoils-silicone-kjlc/), and so this is really good cost-price.
+
 To do: improve diffusion pump design, ensure nichrome wire can do 1kW of power and heat it enough for truly good pumping, and have the inverted u-shape and DFM for the pump. I.e. design the cylinder to be holed + screwed rather than anything else and machine/attach the U-bend bit separately.
