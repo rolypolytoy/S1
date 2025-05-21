@@ -37,27 +37,28 @@ We'll use the [KJL 704](https://www.agarscientific.com/vacuum-diffusion-pump-flu
 The nichrome wire I'm using can heat up to 800W so we're good in terms of heating since resistive heating implements are the only implements with 100% efficiency, and 800W is more than enough to heat a diffusion pump of this size and we're using a [server fan](https://www.amazon.in/Delta-Electronics-AFB1212GHE-CF00-120x120x-connector/dp/B004X2M2GG) with 241 CFM- it's noisy but it's better than a water cooling system I know that, so about 200W of dissipation might be viable.
 
 ### Embedded Systems
-A  low-cost Everhart-Thornley detector is outlined below:
+
+All power sources are kept outside and funneled in- this is because power supplies have electrolytic capacitors that will 100% burst in a vacuum. All our embedded stuff is designed to have none of this.
+
+The power supply comes from mains through a plug, and we have a [10kVDC](https://ar.aliexpress.com/item/1005003518403820.html) power source, as well as a [60VDC](https://www.amazon.in/Adjustable-05-60Volt-Variable-Converter-600Watts/dp/B0F3KJ5VNP) power source that connects w/mains.
+
 
 - **Microcontroller**:  
   - [Teensy 4.1](https://www.amazon.in/4-1-iMXRT1062-Development-soldered-Pre-soldered/dp/B0DP6M197Q) (no electrolytic capacitors, which make it safe for vacuum pressures due to no outgassing or capacitor ruptures)
-  - Adequate computing power for onboard signal processing, like frame averaging or deconvolution.
-  - Works with the Arduino framework which makes coding for it a lot easier.
+  - Works with the Arduino framework with [Teensyduino](https://www.pjrc.com/teensy/td_download.html).
 
-- **Detector Stuff**:  
-  - [Plastic scintillator with 425 nm emission](https://www.alibaba.com/product-detail/Polystyrene-Plastic-scintillator-material-equivalent-EJ_1601298622046.html?spm=a2700.7724857.0.0.6c196c9eovIgdM)
-  - [Onsemi SiPM with 420 nm peak sensitivity](https://www.mouser.in/ProductDetail/onsemi/MICROFC-30020-SMT-TR1?qs=byeeYqUIh0PslEkIwO7UpQ%3D%3D)
-  - [Cremat CR-110](https://www.amazon.ae/CR-113-R2-1-Charge-Sensitive-preamplifier-Module/dp/B07BCQSBD8) charge-sensitive preamplifier (µs-long pulses, 7 ns rise time) to read current from the silicon photomultiplier  
-  - [Cremat CR-200-500ns](https://www.amazon.ae/Cremat-Inc-CR-200-500ns-R2-1-Shaping-Amplifier/dp/B07BD28Y7R?) pulse shaper (500 ns pulses) so the ADC can read from it
-  - The [AD7626BCPZ](https://www.mouser.in/ProductDetail/Analog-Devices/AD7626BCPZ-RL7?qs=%2FtpEQrCGXCwjx1S0Wpoj8A%3D%3D)- a 10 MSPS ADC (exceeds the 2 MSPS requirement for 500 ns pulses, with roughly 5 samples/pulse- good for SNR)
-  - The [AD5754BREZ](https://www.mouser.in/ProductDetail/Analog-Devices/AD5754BREZ?qs=NmRFExCfTkE9WVZYrblgWQ%3D%3D)- a ±10V, 16-bit quad-channel DAC for analog control of the XY raster scan patterns
-  - Electrostatic deflection plates for beam movement and magnification
-  - Should probably mention what driver I'm going to use for the NEMA 11 motors on the stages and how I'll drive the V_SOURCE for all of these and where the application and .ino code for these is. Coming soon, not to worry.
+- **Electron Detector**:  
+  - [Plastic scintillator with 425 nm emission](https://www.alibaba.com/product-detail/Polystyrene-Plastic-scintillator-material-equivalent-EJ_1601298622046.html?spm=a2700.7724857.0.0.6c196c9eovIgdM). It's a 10mmx10mmx1mm cuboid.
+  - [Onsemi SiPM with 420 nm peak sensitivity](https://www.mouser.in/ProductDetail/onsemi/MICROFC-30035-SMT-TR?qs=byeeYqUIh0Mh9KJVNOFZEA%3D%3D). I've taken the CAD file for this and put it in the CAD folder. Its rise time is 0.6nS, and at 420nM it has over 40% of particles detected. It has a 300 ps pulse with a 600 ps pulse width. It has several white papers on its characteristics. In [this one](https://www.onsemi.com/pub/collateral/and9770-d.pdf) we can see its breakdown voltage is ~24.6 V and in [this one](https://www.onsemi.com/download/white-papers/pdf/tnd6262-d.pdf) we can see its recommended overvoltage is 5.0V so 30VDC is a very, very good voltage and we can make it with the 60V power supply with a basic voltage divider. They have either a fast pulse or a normal pulse mode, we'll use normal pulse mode. 
+  - [Cremat CR-110](https://www.amazon.ae/CR-113-R2-1-Charge-Sensitive-preamplifier-Module/dp/B07BCQSBD8) charge-sensitive preamplifier (µs-long pulses, 7 ns rise time) to read current from the silicon photomultiplier, and it needs a +-10V (12V total) power supply. The pulses from this are 7ns in terms of rise time and decay slower. 
+  - [Cremat CR-200-500ns](https://www.amazon.ae/Cremat-Inc-CR-200-500ns-R2-1-Shaping-Amplifier/dp/B07BD28Y7R?) pulse shaper (500 ns pulses) so the ADC can read from it. Needs the same power as the CR-110. Shapes it into Gaussian pulses and amplifies it a bit more post-CSA so this should be in the hundreds of mV/low V range, but regardless will be within the ADC's 16 bits of range.
+  - The [AD7626BCPZ](https://www.mouser.in/ProductDetail/Analog-Devices/AD7626BCPZ-RL7?qs=%2FtpEQrCGXCwjx1S0Wpoj8A%3D%3D)- a 10 MSPS ADC (exceeds the 2 MSPS requirement for 500 ns pulses, with roughly 5 samples/pulse- good for SNR). So, we can quite easily sample at 2MHz with this signal processing pipeline which is good enough for electron microscopy. Uses LVDS so we'll definitely need a chip for it which is [this one](https://www.mouser.in/ProductDetail/Texas-Instruments/DS90CR286ATDGGRQ1?qs=8%2FmU9qzJpL9GnwtExKjdYg%3D%3D). So we have a functional design for an electron detection pipeline at fast enough speeds for our needs.
 
-All [component datasheets](https://github.com/rolypolytoy/S1/tree/main/Detection%20%26%20Control) and the full [bill of materials](https://github.com/rolypolytoy/S1/blob/main/Bill%20of%20Materials.docx) are included in this repository.
+The EE bit is done, all that remains is the embedded system code & companion app.
+
 
 ### CAD
-Update: I found an [old paper](https://github.com/rolypolytoy/S1/blob/main/SEM_Design.pdf) which literally outlines how to design a 10-nm resolution SEM with exact current, current densities (so of course we can reconstruct the gauge they used, which I did, and it's 14 AWG), condenser 1, 2, and objective lens specs, beam column design, full ray tracing with commercial FEM, and so the design work has been done already. Of course this means all the work we did in the electron column is useless but honestly basically guaranteeing nm-scale resolution is worthwhile. Even if we don't get 10 nm resolution, it's going to get sub-micron resolution.
+Update: I found an [old paper](https://github.com/rolypolytoy/S1/blob/main/SEM_Design.pdf) which literally outlines how to design a 10-nm resolution SEM with exact current, current densities (so of course we can reconstruct the gauge they used, which I did, and it's 14 AWG), condenser 1, 2, and objective lens specs, beam column design, full ray tracing with commercial FEM, and so the design work has been done already. Of course this means all the work we did in the electron column is useless but honestly basically guaranteeing nm-scale resolution is worthwhile. Even if we don't get 10 nm resolution, it's going to get sub-micron resolution. The condenser lens 1 is centered at 80mm below the Wehnelt cap aperture (at 100.45mm). The second condenser lens is centered at 165mm below, or at -64mm-ish. Final focus is at 301mm, and the assembly of the objective lens must end at 290mm. This is all, as per the latest CAD file, is entirely valid and so the dimensions are all entirely correct. 
 
 Additionally I've finished the CAD for the electron column including the Wehnelt cylinder, anodes, and lenses. We're using M19 (no grain orientation) silicon steel for most housing and ferromagnetic parts. Cheaper than iron, works well enough, permeability is in the low to mid thousands so that's good. M5 for the pole pieces- it's grain oriented so we need to machine it in the right orientation but we just need three of those. It can have >20,000 as its relative permeability in the right direction, so it's worthwhile for the pole piece and probably good enough. We'll need ~500 meters of 14 AWG wire so we'll use aluminium- we're way below its ampacity so it's not a concern at all, and I don't want to either 1- buy scrap transformer wire like all the cool kids (read: Michio Kaku as a teen) did, because the quality is really bad or 2- buy copper wire when it's not necessary, because it's maybe 5x more expensive. 
 
