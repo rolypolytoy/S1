@@ -11,16 +11,8 @@ S1 is an open-source, low-cost, high-performance scanning electron microscope (S
 
 ## System Overview
 
-S1 is composed of four core modules:
-
-### [Vacuum Integrity](https://github.com/rolypolytoy/S1/tree/main/Vacuum%20Integrity)
-- Fully functional high-vacuum system.
-- Custom diffusion pump design and integration with COTC rotary vane pumps.
-- Image of CAD files:
-  
+### Vacuum Integrity
 ![View](https://github.com/user-attachments/assets/2c7445c5-50e3-48b4-bc69-a5a0268d8c9f)
-
-To reach the <1e-5 torr pressures required to operate a thermionic tungsten source, we need a roughing pump and a high vacuum pump.
 
 [Roughing pumps](https://www.amazon.com/Orion-Motor-Tech-Conditioner-Servicing/dp/B08P1W6Z8D) can be bought quite cheaply on amazon for about $70, and can pump down to the 1e-2 torr order of magnitude, which is good enough as a backing pump for most high-vacuum pumps. This one is 37.5 microns, which converts to around 3e-2 torr, which is good enough for diffusion pumps.
 
@@ -36,12 +28,13 @@ We'll use the [KJL 704](https://www.agarscientific.com/vacuum-diffusion-pump-flu
 
 The nichrome wire I'm using can heat up to 800W so we're good in terms of heating since resistive heating implements are the only implements with 100% efficiency, and 800W is more than enough to heat a diffusion pump of this size and we're using a [server fan](https://www.amazon.in/Delta-Electronics-AFB1212GHE-CF00-120x120x-connector/dp/B004X2M2GG) with 241 CFM- it's noisy but it's better than a water cooling system I know that, so about 200W of dissipation might be viable.
 
+We'll use dovetail sliding doors, nitrile tubing, and screw clamps for the sliding door.
+
 ### Embedded Systems
 
 All power sources are kept outside and funneled in- this is because power supplies have electrolytic capacitors that will 100% burst in a vacuum. All our embedded stuff is designed to have none of this.
 
 The power supply comes from mains through a plug, and we have a [10kVDC](https://ar.aliexpress.com/item/1005003518403820.html) power source, as well as a [60VDC](https://www.amazon.in/Adjustable-05-60Volt-Variable-Converter-600Watts/dp/B0F3KJ5VNP) power source that connects w/mains.
-
 
 - **Microcontroller**:  
   - [Teensy 4.1](https://www.amazon.in/4-1-iMXRT1062-Development-soldered-Pre-soldered/dp/B0DP6M197Q) (no electrolytic capacitors, which make it safe for vacuum pressures due to no outgassing or capacitor ruptures)
@@ -54,28 +47,33 @@ The power supply comes from mains through a plug, and we have a [10kVDC](https:/
   - [Cremat CR-200-500ns](https://www.amazon.ae/Cremat-Inc-CR-200-500ns-R2-1-Shaping-Amplifier/dp/B07BD28Y7R?) pulse shaper (500 ns pulses) so the ADC can read from it. Needs the same power as the CR-110. Shapes it into Gaussian pulses and amplifies it a bit more post-CSA so this should be in the hundreds of mV/low V range, but regardless will be within the ADC's 16 bits of range.
   - The [AD7626BCPZ](https://www.mouser.in/ProductDetail/Analog-Devices/AD7626BCPZ-RL7?qs=%2FtpEQrCGXCwjx1S0Wpoj8A%3D%3D)- a 10 MSPS ADC (exceeds the 2 MSPS requirement for 500 ns pulses, with roughly 5 samples/pulse- good for SNR). So, we can quite easily sample at 2MHz with this signal processing pipeline which is good enough for electron microscopy. Uses LVDS so we'll definitely need a chip for it which is [this one](https://www.mouser.in/ProductDetail/Texas-Instruments/DS90CR286ATDGGRQ1?qs=8%2FmU9qzJpL9GnwtExKjdYg%3D%3D). So we have a functional design for an electron detection pipeline at fast enough speeds for our needs.
 
-The EE bit is done, all that remains is the embedded system code & companion app.
+The EE bit is done, all that remains is the embedded system code & companion app (Teensyduino and QT via PySide6, Pyintaller, PyUSB, PySERIAL on pypi respectively).
 
 
 ### CAD
-Update: I found an [old paper](https://github.com/rolypolytoy/S1/blob/main/SEM_Design.pdf) which literally outlines how to design a 10-nm resolution SEM with exact current, current densities (so of course we can reconstruct the gauge they used, which I did, and it's 14 AWG), condenser 1, 2, and objective lens specs, beam column design, full ray tracing with commercial FEM, and so the design work has been done already. Of course this means all the work we did in the electron column is useless but honestly basically guaranteeing nm-scale resolution is worthwhile. Even if we don't get 10 nm resolution, it's going to get sub-micron resolution. The condenser lens 1 is centered at 80mm below the Wehnelt cap aperture (at 100.45mm). The second condenser lens is centered at 165mm below, or at -64mm-ish. Final focus is at 301mm, and the assembly of the objective lens must end at 290mm. This is all, as per the latest CAD file, is entirely valid and so the dimensions are all entirely correct. 
+I found an [old paper](https://github.com/rolypolytoy/S1/blob/main/SEM_Design.pdf) which outlines how to design a 10-nm resolution SEM with exact current, current densities (so of course we can reconstruct the gauge they used, which I did, and it's 14 AWG), condenser 1, 2, and objective lens specs, beam column design, full ray tracing with commercial FEM, and so the design work has been done already. Of course this means all the work we did in the electron column is useless but honestly basically guaranteeing nm-scale resolution is worthwhile. Even if we don't get 10 nm resolution, it's going to get sub-micron resolution. The condenser lens 1 is centered at 80mm below the Wehnelt cap aperture (at 100.45mm). The second condenser lens is centered at 165mm below, or at -64mm-ish. Final focus is at 301mm, and the assembly of the objective lens must end at 290mm. This is all, as per the latest CAD file, is entirely valid and so the dimensions are all entirely correct. 
 
-Additionally I've finished the CAD for the electron column including the Wehnelt cylinder, anodes, and lenses. We're using M19 (no grain orientation) silicon steel for most housing and ferromagnetic parts. Cheaper than iron, works well enough, permeability is in the low to mid thousands so that's good. M5 for the pole pieces- it's grain oriented so we need to machine it in the right orientation but we just need three of those. It can have >20,000 as its relative permeability in the right direction, so it's worthwhile for the pole piece and probably good enough. We'll need ~500 meters of 14 AWG wire so we'll use aluminium- we're way below its ampacity so it's not a concern at all, and I don't want to either 1- buy scrap transformer wire like all the cool kids (read: Michio Kaku as a teen) did, because the quality is really bad or 2- buy copper wire when it's not necessary, because it's maybe 5x more expensive. 
+Additionally I've finished the CAD for the electron column including the Wehnelt cylinder, anodes, and lenses. There wasn't information on the pole piece bore size in the SEM paper so I found a patent for a magnetic lens design and it showed that the normal range was from 1 mm to 3 mm, so I've taken a 4 mm bore diameter for the condenser lenses and 1 mm for the objective lens (US5563415A if you're looking for it, but I have the pdf in the repo regardless). It expired in 2015- [proof here](https://patents.google.com/patent/US5563415A/en?oq=5%2c563%2c415), so we're entirely able to use it. In general there are a lot of US patents on electromagnetic lenses [here](https://patents.google.com/?q=H01J37%2f141).
+
+Another expired patent I found really useful is a full design of an SEM that expired in 1992: [US3924126A](https://patents.google.com/patent/US3924126A/en?q=H01J37%2f141). It's not as useful as the paper because it doesn't include full dimensions, but it's a sanity check and it has some useful information about alignment, some dimensions that weren't mentioned in the paper, and aperture-related info. So, another good source.
+
+For the yoke of the magnetic lenses we'll use soft iron, and for the pole piece we'll use Permalloy.
+
+We'll need ~500 meters of 14 AWG wire so we'll use aluminium- we're way below its ampacity so it's not a concern at all, and I don't want to either 1- buy scrap transformer wire like all the cool kids (read: Michio Kaku as a teen) did, because the quality is really bad or 2- buy copper wire when it's not necessary, because it's maybe 5x more expensive. 
 
 I've fully reconstructed the specs from the paper:
 ![image](https://github.com/user-attachments/assets/b0a0304c-8fe1-4417-b519-8f8921494e14)
 
-This is in the repo as ElectronColumn.FCStd, of course. All the sizes are exactly as taken down to the mm from the paper. The diagram the paper gives looks similar:
-
-![image](https://github.com/user-attachments/assets/e7585053-3ab1-4029-92b3-54e0bd00bb6f)
-
-Now the frame and modular parts need to be made, embedded code needs to be written, and... that's it. The guarantee that this will work is in a way already there because we have a readymade design. i guess I just made an electrodynamics library for nothing but this is the kind of 'my past work is useless' you like to see. 
+This is in the repo as ElectronColumn.FCStd, of course. All the sizes are exactly as taken down to the mm from the paper. The diagram the paper gives looks similar. We have only the remaining CAD and embedded left.
       
   - **Cable feedthroughs**:
     -   Our current approach to making flanges is to, when the frame is being machined, make precise holes in the exterior, pass silicone wires through, and use vacuum-tolerant epoxy. This is expensive, but believe it or not, significantly less expensive than buying feedthroughs for 230VAC, 24VDC, USB, etc, etc. We use [Loctite Stycast-2850](https://in.rsdelivers.com/product/loctite/loctite-stycast-2850-ft-quartkit/loctite-loctite-stycast-2850-ft-quartkit-black-1/2349630)- a state of the art vacuum epoxy, which means this "makeshift" setup is actually more than satisfactory for HV, and really only gets iffy when you get down to UHV. Additionally- silicone doesn't outgas a lot, so using silicone-insulated wires isn't a no-no, but even if it is, taping over it with PTFE tape is an extremely easy (and cheap) workaround which doesn't compromise anything, or introduce any irregularities into the system.
   
   - **Stage platform**:
     - We use a cheap but micron-level accuracy open-loop stage by buying 3 instances of these [1-axis CNC stepper motor setups with 50 mm stroke length](https://ar.aliexpress.com/item/1005007308081154.html), combining it with three instances of the legendary [TM2209 motor driver](https://www.amazon.in/TESSERACT-TMC2209-V2-0-Ultra-Silent-Motherboard/dp/B08QPLL28G) which has 1/256 microstepping, which means we get micron-level resolution in XYZ. This is particularly important for beam clarity because this means we can use autofocus and vary the z-axis, instead of needing to vary the voltage to the objective lens, which makes our power electronics considerably simpler because we can just use static voltage dividers for all our high-voltage components and implement autofocus by modifying the z-axis and checking if the image is in-focus or out of focus. 
+
+In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for critical vacuum chamber bits sanding with 220 to 3000-grit), Polypropylene (via manual milling and lathing with up to 2000 grit), Soft Iron Yokes (via manual milling and lathing, surface finishing with 220 to 2000 grit), Pole Pieces from Permalloy (literally no shot you do anything other than wire EDM and polishing). 
+
 ---
 
 ## Development Timeline
