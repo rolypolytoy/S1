@@ -80,7 +80,7 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 
 | Milestone                            | Target Date |
 |-------------------------------------|-------------|
-| Vacuum, column & ET-Detector design complete   | ✅ Q1 2025   |
+| Full design complete   | ✅ Q1 2025   |
 | **Release-ready version**           | 🟡 **Q2 2025** |
 ---
 
@@ -89,4 +89,4 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 Here's what I still need to implement:
 
 - Functioning code for the microcontroller to run on, and a companion desktop app that integrates with any OS. Flutter for the app, Arduino framework for the code (thx teensyduino).
-- Images from the SEM.
+- Turning the SEM on.
