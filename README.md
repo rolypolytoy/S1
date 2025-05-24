@@ -94,6 +94,5 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 ## Checklist of What Remains
 Here's what I still need to implement:
 
-- Housing for the SEM
-- Functioning code for the microcontroller to run on, and a companion desktop app that integrates with any OS. Flutter for the app, Arduino framework for the code (thx teensyduino).
-- Turning the SEM on.
+- Housing CAD, and attachment mechanisms
+- Functioning code for the microcontroller to run on.
