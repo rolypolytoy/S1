@@ -57,9 +57,15 @@ Additionally I've finished the CAD for the electron column including the Wehnelt
 
 Another expired patent I found really useful is a full design of an SEM that expired in 1992: [US3924126A](https://patents.google.com/patent/US3924126A/en?q=H01J37%2f141). It's not as useful as the paper because it doesn't include full dimensions, but it's a sanity check and it has some useful information about alignment, some dimensions that weren't mentioned in the paper, and aperture-related info. So, another good source.
 
-For the yoke of the magnetic lenses we'll use soft iron, and for the pole piece we'll use Permalloy.
+For the pole piece: one internal piece, one external piece, attached w/screws. 3A current, 2.8A current, 1.1 A current. 14 AWG wire. Center of condenser lens at 80mm, Focal position 1 at approx. 100mm, Center of Condenser 2 at 164mm, Focal position 2 at approximately 170 mm, center of Objective at 295mm and focal position at 315 mm. 1000 micrometer beam-limiting aperture at 80mm, 100 micrometer beam-limiting aperture at 200mm. 
 
-We'll need ~500 meters of 14 AWG wire so we'll use aluminium- we're way below its ampacity so it's not a concern at all, and I don't want to either 1- buy scrap transformer wire like all the cool kids (read: Michio Kaku as a teen) did, because the quality is really bad or 2- buy copper wire when it's not necessary, because it's maybe 5x more expensive. 
+A 500 micrometer aperture as the condenser aperture at 60 mm and a 200 micrometer aperture as the objective aperture at 280 mm.
+
+We also need ~500m of 14 AWG aluminium wire which is either insulated or enameled, for as cheap as possible, which is roughly 14.5 USD, and definitely under 100
+
+Every exterior of the EM lens should be in 4 pieces, and the pole piece as 1. Design the CAD files of these next. Scanning coils (solenoid), stigmators (octupole), and alignment coils (quadrupole) also necessary using 14AWG Al wire and M19 cores where relevant.
+
+For the yoke of the magnetic lenses we'll use soft iron, and for the pole piece we'll use Permalloy.
 
 I've fully reconstructed the specs from the paper:
 ![image](https://github.com/user-attachments/assets/b0a0304c-8fe1-4417-b519-8f8921494e14)
