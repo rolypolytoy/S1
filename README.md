@@ -57,7 +57,7 @@ Additionally I've finished the CAD for the electron column including the Wehnelt
 
 Another expired patent I found really useful is a full design of an SEM that expired in 1992: [US3924126A](https://patents.google.com/patent/US3924126A/en?q=H01J37%2f141). It's not as useful as the paper because it doesn't include full dimensions, but it's a sanity check and it has some useful information about alignment, some dimensions that weren't mentioned in the paper, and aperture-related info. So, another good source.
 
-For the pole piece: one internal piece, one external piece, attached w/screws. 3A current, 2.8A current, 1.1 A current. 14 AWG wire. Center of condenser lens at 80mm, Focal position 1 at approx. 100mm, Center of Condenser 2 at 164mm, Focal position 2 at approximately 170 mm, center of Objective at 295mm and focal position at 315 mm. 1000 micrometer beam-limiting aperture at 80mm, 100 micrometer beam-limiting aperture at 200mm. 
+For the pole piece: one internal piece, one external piece, attached w/screws. 3A current, 2.8A current, 1.1 A current. 14 AWG wire. Center of condenser lens at 80mm, Focal position 1 at approx. 100mm, Center of Condenser 2 at 164mm, Focal position 2 at approximately 170 mm, center of Objective at 295mm and focal position at 315 mm. 1000 micrometer beam-limiting aperture at 80mm, 100 micrometer beam-limiting aperture at 200mm. Luckily all the apertures are 'inside' the lenses so we don't have to worry about them when constructing the structural parts.
 
 A 500 micrometer aperture as the condenser aperture at 60 mm and a 200 micrometer aperture as the objective aperture at 280 mm.
 
@@ -94,5 +94,6 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 ## Checklist of What Remains
 Here's what I still need to implement:
 
+- Housing for the SEM
 - Functioning code for the microcontroller to run on, and a companion desktop app that integrates with any OS. Flutter for the app, Arduino framework for the code (thx teensyduino).
 - Turning the SEM on.
