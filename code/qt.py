@@ -188,26 +188,6 @@ class HumeInterface(QWidget):
         
         controls_layout.addLayout(sliders_layout)
         
-        beam_controls_title = QLabel("ELECTRON BEAM ALIGNMENT")
-        beam_controls_title.setStyleSheet("color: #888888; font-size: 12px; font-weight: 600; letter-spacing: 2px;")
-        controls_layout.addWidget(beam_controls_title)
-        
-        beam_sliders_layout = QGridLayout()
-        beam_sliders_layout.setHorizontalSpacing(40)
-        beam_sliders_layout.setVerticalSpacing(30)
-        
-        self.stigmator_x = LogSlider("Stigmator X", 0.00, 100.00, is_linear=True)
-        self.stigmator_y = LogSlider("Stigmator Y", 0.00, 100.00, is_linear=True)
-        self.beam_align_x = LogSlider("Beam Alignment X", 0.00, 100.00, is_linear=True)
-        self.beam_align_y = LogSlider("Beam Alignment Y", 0.00, 100.00, is_linear=True)
-        
-        beam_sliders_layout.addWidget(self.stigmator_x, 0, 0)
-        beam_sliders_layout.addWidget(self.stigmator_y, 0, 1)
-        beam_sliders_layout.addWidget(self.beam_align_x, 1, 0)
-        beam_sliders_layout.addWidget(self.beam_align_y, 1, 1)
-        
-        controls_layout.addLayout(beam_sliders_layout)
-        
         spacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
         
         footer = QLabel("HUME NANOTECH © 2025")
