@@ -4,7 +4,7 @@ S1 is an open-source, low-cost, high-performance scanning electron microscope (S
 
 | Metric            | Estimated     | Achieved | Method                  |
 | ----------------- | ---------- | -------- | ----------------------- |
-| Ultimate Resolution    | ~10nm     | TBD      | Reconstructing the Paper |
+| Ultimate Resolution    |<<100nm     | TBD      | Reconstructing the Paper |
 | Vacuum Pressure   | <10⁻⁵ Torr | TBD      | HV Diffusion Pump, Embedded Pressure Gauge.|
 
 ---
@@ -70,7 +70,7 @@ For the yoke of the magnetic lenses we'll use soft iron, and for the pole piece 
 I've fully reconstructed the specs from the paper:
 ![image](https://github.com/user-attachments/assets/b0a0304c-8fe1-4417-b519-8f8921494e14)
 
-This is in the repo as ElectronColumn.FCStd, of course. All the sizes are exactly as taken down to the mm from the paper. The diagram the paper gives looks similar. We have only the remaining CAD and embedded left.
+This is in the repo as ElectronColumn.FCStd, of course. All the sizes are exactly as taken down to the mm from the paper, and I've made structural components for everything as well.
       
   - **Cable feedthroughs**:
     -   Our current approach to making flanges is to, when the frame is being machined, make precise holes in the exterior, pass silicone wires through, and use vacuum-tolerant epoxy. This is expensive, but believe it or not, significantly less expensive than buying feedthroughs for 230VAC, 24VDC, USB, etc, etc. We use [Loctite Stycast-2850](https://in.rsdelivers.com/product/loctite/loctite-stycast-2850-ft-quartkit/loctite-loctite-stycast-2850-ft-quartkit-black-1/2349630)- a state of the art vacuum epoxy, which means this "makeshift" setup is actually more than satisfactory for HV, and really only gets iffy when you get down to UHV. Additionally- silicone doesn't outgas a lot, so using silicone-insulated wires isn't a no-no, but even if it is, taping over it with PTFE tape is an extremely easy (and cheap) workaround which doesn't compromise anything, or introduce any irregularities into the system.
