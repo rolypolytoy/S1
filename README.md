@@ -47,6 +47,8 @@ The power supply comes from mains through a plug, and we have a [10kVDC](https:/
   - [Cremat CR-200-500ns](https://www.amazon.ae/Cremat-Inc-CR-200-500ns-R2-1-Shaping-Amplifier/dp/B07BD28Y7R?) pulse shaper (500 ns pulses) so the ADC can read from it. Needs the same power as the CR-110. Shapes it into Gaussian pulses and amplifies it a bit more post-CSA so this should be in the hundreds of mV/low V range, but regardless will be within the ADC's 16 bits of range.
   - The [AD7626BCPZ](https://www.mouser.in/ProductDetail/Analog-Devices/AD7626BCPZ-RL7?qs=%2FtpEQrCGXCwjx1S0Wpoj8A%3D%3D)- a 10 MSPS ADC (exceeds the 2 MSPS requirement for 500 ns pulses, with roughly 5 samples/pulse- good for SNR). So, we can quite easily sample at 2MHz with this signal processing pipeline which is good enough for electron microscopy. Uses LVDS so we'll definitely need a chip for it which is [this one](https://www.mouser.in/ProductDetail/Texas-Instruments/DS90CR286ATDGGRQ1?qs=8%2FmU9qzJpL9GnwtExKjdYg%3D%3D). So we have a functional design for an electron detection pipeline at fast enough speeds for our needs.
 
+I'll obviously use a blue LED on the photomultiplier-cremat-ADC setup to see if it works before assembling the ET detector.
+
 The EE bit is done, all that remains is the embedded system code & companion app (Teensyduino and QT via PySide6, Pyintaller, PyUSB, PySERIAL on pypi respectively).
 
 
@@ -80,7 +82,7 @@ This is in the repo as ElectronColumn.FCStd, of course. All the sizes are exactl
   - **Stage platform**:
     - We use a cheap but micron-level accuracy open-loop stage by buying 3 instances of these [1-axis CNC stepper motor setups with 50 mm stroke length](https://ar.aliexpress.com/item/1005007308081154.html), combining it with three instances of the legendary [TM2209 motor driver](https://www.amazon.in/TESSERACT-TMC2209-V2-0-Ultra-Silent-Motherboard/dp/B08QPLL28G) which has 1/256 microstepping, which means we get micron-level resolution in XYZ. This is particularly important for beam clarity because this means we can use autofocus and vary the z-axis, instead of needing to vary the voltage to the objective lens, which makes our power electronics considerably simpler because we can just use static voltage dividers for all our high-voltage components and implement autofocus by modifying the z-axis and checking if the image is in-focus or out of focus. 
 
-In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for critical vacuum chamber bits sanding with 220 to 3000-grit), Polypropylene (via manual milling and lathing with up to 2000 grit), Soft Iron Yokes (via manual milling and lathing, surface finishing with 220 to 2000 grit), Pole Pieces from Permalloy (literally no shot you do anything other than wire EDM and polishing). 
+In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for critical vacuum chamber bits sanding with 220 to 3000-grit), Polypropylene (via manual milling and lathing with up to 2000 grit), Soft Iron Yokes (via manual milling and lathing, surface finishing with 220 to 2000 grit), Pole Pieces from Permalloy (manual milling/lathing, then electropolishing). Before and after assembly clean everything with isopropyl then acetone, in a cleanroom-esque environment with nitrile gloves and basic PPE.
 
 ---
 
@@ -96,5 +98,4 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 ## Checklist of What Remains
 Here's what I still need to implement:
 
-- Complete misc details
-- Activate
+- Machine it and get it functioning
