@@ -97,4 +97,4 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 Here's what I still need to implement:
 
 - ET Detector CAD & Misc details
-- Functioning code for the microcontroller to run on.
+- Microcontroller logic
