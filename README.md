@@ -67,6 +67,8 @@ Every exterior of the EM lens should be in 4 pieces, and the pole piece as 1. De
 
 For the yoke of the magnetic lenses we'll use soft iron, and for the pole piece we'll use Permalloy.
 
+Make a singular CAD Assembly file with all details.
+
 I've fully reconstructed the specs from the paper:
 ![image](https://github.com/user-attachments/assets/b0a0304c-8fe1-4417-b519-8f8921494e14)
 
