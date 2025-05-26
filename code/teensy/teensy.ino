@@ -66,12 +66,26 @@ struct DACData {
   bool needsUpdate[4];
 };
 
+struct USBCommand {
+  char buffer[64];
+  int index;
+  bool complete;
+};
+
+struct StreamData {
+  bool enabled;
+  unsigned long lastStream;
+  unsigned long streamInterval;
+};
+
 MotorState motor1 = {0, 0, false, 0, 1000, STEP1_PIN, DIR1_PIN};
 MotorState motor2 = {0, 0, false, 0, 1000, STEP2_PIN, DIR2_PIN};
 MotorState motor3 = {0, 0, false, 0, 1000, STEP3_PIN, DIR3_PIN};
 
 ADCData adcData = {0, 0, false, 0};
 DACData dacData = {0, 0, 0, 0, {false, false, false, false}};
+USBCommand usbCmd = {"", 0, false};
+StreamData streamData = {false, 0, 1000};
 
 volatile bool echoReceived = false;
 volatile int echoBitCount = 0;
@@ -151,6 +165,8 @@ void loop() {
   updateMotors();
   updateADC();
   updateDAC();
+  processUSBCommands();
+  streamADCData();
 }
 
 void updateMotors() {
@@ -404,4 +420,149 @@ uint16_t getDACChannel(uint8_t channel) {
 
 float dacToVoltage(uint16_t dacValue) {
   return (dacValue * 20.0 / 65535.0) - 10.0;
+}
+
+void processUSBCommands() {
+  while (Serial.available()) {
+    char c = Serial.read();
+    
+    if (c == '\n' || c == '\r') {
+      if (usbCmd.index > 0) {
+        usbCmd.buffer[usbCmd.index] = '\0';
+        parseCommand(usbCmd.buffer);
+        usbCmd.index = 0;
+      }
+    } else if (usbCmd.index < 63) {
+      usbCmd.buffer[usbCmd.index++] = c;
+    }
+  }
+}
+
+void parseCommand(char* cmd) {
+  if (strncmp(cmd, "MOVE", 4) == 0) {
+    int motor, position;
+    if (sscanf(cmd, "MOVE %d %d", &motor, &position) == 2) {
+      moveMotorTo(motor, position);
+      Serial.print("OK MOVE ");
+      Serial.print(motor);
+      Serial.print(" ");
+      Serial.println(position);
+    } else {
+      Serial.println("ERROR MOVE");
+    }
+  }
+  else if (strncmp(cmd, "POS", 3) == 0) {
+    int motor;
+    if (sscanf(cmd, "POS %d", &motor) == 1) {
+      Serial.print("POS ");
+      Serial.print(motor);
+      Serial.print(" ");
+      Serial.println(getMotorPosition(motor));
+    } else {
+      Serial.println("POS 1 ");
+      Serial.print(getMotorPosition(1));
+      Serial.print(" 2 ");
+      Serial.print(getMotorPosition(2));
+      Serial.print(" 3 ");
+      Serial.println(getMotorPosition(3));
+    }
+  }
+  else if (strncmp(cmd, "SPEED", 5) == 0) {
+    int motor;
+    float rpm;
+    if (sscanf(cmd, "SPEED %d %f", &motor, &rpm) == 2) {
+      setMotorSpeed(motor, rpm);
+      Serial.print("OK SPEED ");
+      Serial.print(motor);
+      Serial.print(" ");
+      Serial.println(rpm);
+    } else {
+      Serial.println("ERROR SPEED");
+    }
+  }
+  else if (strncmp(cmd, "STOP", 4) == 0) {
+    int motor;
+    if (sscanf(cmd, "STOP %d", &motor) == 1) {
+      stopMotor(motor);
+      Serial.print("OK STOP ");
+      Serial.println(motor);
+    } else {
+      stopAllMotors();
+      Serial.println("OK STOP ALL");
+    }
+  }
+  else if (strncmp(cmd, "HOME", 4) == 0) {
+    int motor;
+    if (sscanf(cmd, "HOME %d", &motor) == 1) {
+      homeMotor(motor);
+      Serial.print("OK HOME ");
+      Serial.println(motor);
+    } else {
+      homeAllMotors();
+      Serial.println("OK HOME ALL");
+    }
+  }
+  else if (strncmp(cmd, "STREAM", 6) == 0) {
+    int enable, interval;
+    if (sscanf(cmd, "STREAM %d %d", &enable, &interval) == 2) {
+      streamData.enabled = (enable != 0);
+      streamData.streamInterval = interval;
+      Serial.print("OK STREAM ");
+      Serial.print(enable);
+      Serial.print(" ");
+      Serial.println(interval);
+    } else if (sscanf(cmd, "STREAM %d", &enable) == 1) {
+      streamData.enabled = (enable != 0);
+      Serial.print("OK STREAM ");
+      Serial.println(enable);
+    } else {
+      Serial.println("ERROR STREAM");
+    }
+  }
+  else if (strncmp(cmd, "ADC", 3) == 0) {
+    Serial.print("ADC ");
+    Serial.print(adcData.channelA);
+    Serial.print(" ");
+    Serial.print(adcData.channelB);
+    Serial.print(" ");
+    Serial.print(adcToVoltage(adcData.channelA));
+    Serial.print(" ");
+    Serial.println(adcToVoltage(adcData.channelB));
+  }
+  else if (strncmp(cmd, "DAC", 3) == 0) {
+    int channel;
+    float voltage;
+    if (sscanf(cmd, "DAC %d %f", &channel, &voltage) == 2) {
+      setDACVoltage(channel, voltage);
+      Serial.print("OK DAC ");
+      Serial.print(channel);
+      Serial.print(" ");
+      Serial.println(voltage);
+    } else {
+      Serial.println("ERROR DAC");
+    }
+  }
+  else {
+    Serial.println("ERROR UNKNOWN");
+  }
+}
+
+void streamADCData() {
+  if (!streamData.enabled) return;
+  
+  if (micros() - streamData.lastStream >= streamData.streamInterval) {
+    if (adcData.dataReady) {
+      Serial.print("DATA ");
+      Serial.print(micros());
+      Serial.print(" ");
+      Serial.print(adcData.channelA);
+      Serial.print(" ");
+      Serial.print(adcData.channelB);
+      Serial.print(" ");
+      Serial.print(adcToVoltage(adcData.channelA), 6);
+      Serial.print(" ");
+      Serial.println(adcToVoltage(adcData.channelB), 6);
+    }
+    streamData.lastStream = micros();
+  }
 }

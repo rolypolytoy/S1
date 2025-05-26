@@ -1,14 +1,20 @@
 import sys
 import math
+import serial
+import serial.tools.list_ports
+import threading
+import time
 from PySide6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QLabel, QSlider, QFrame, QGridLayout, QSpacerItem, QSizePolicy, QLineEdit
 )
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QTimer, Signal
 from PySide6.QtGui import QFont, QPainter, QPen, QBrush, QPixmap
 
 
 class LogSlider(QWidget):
+    valueChanged = Signal(float)
+    
     def __init__(self, label_text, min_val=0, max_val=10000, is_linear=False):
         super().__init__()
         self.min_val = min_val
@@ -109,6 +115,7 @@ class LogSlider(QWidget):
                 self.slider.blockSignals(True)
                 self.slider.setValue(slider_pos)
                 self.slider.blockSignals(False)
+                self.valueChanged.emit(input_value)
         except ValueError:
             pass
     
@@ -127,13 +134,107 @@ class LogSlider(QWidget):
                 self.value_label.setText(f"{actual_value/1000:.1f}k")
             else:
                 self.value_label.setText(str(actual_value))
+        
+        self.valueChanged.emit(actual_value)
+    
+    def get_value(self):
+        if self.is_linear:
+            return float(self.value_label.text())
+        else:
+            text = self.value_label.text()
+            if 'k' in text:
+                return float(text.replace('k', '')) * 1000
+            else:
+                return float(text)
+
+
+class TeensyComm:
+    def __init__(self):
+        self.serial_conn = None
+        self.is_connected = False
+        self.adc_data = {'chA': 0, 'chB': 0, 'voltA': 0.0, 'voltB': 0.0}
+        self.positions = {'motor1': 0, 'motor2': 0, 'motor3': 0}
+        self.read_thread = None
+        self.running = False
+    
+    def find_teensy(self):
+        ports = serial.tools.list_ports.comports()
+        for port in ports:
+            if "teensy" in port.description.lower() or "usb serial" in port.description.lower():
+                return port.device
+        return None
+    
+    def connect(self):
+        port = self.find_teensy()
+        if port:
+            try:
+                self.serial_conn = serial.Serial(port, 115200, timeout=1)
+                time.sleep(2)
+                self.is_connected = True
+                self.running = True
+                self.read_thread = threading.Thread(target=self.read_data)
+                self.read_thread.daemon = True
+                self.read_thread.start()
+                self.send_command("STREAM 1 10000")
+                return True
+            except:
+                self.is_connected = False
+                return False
+        return False
+    
+    def disconnect(self):
+        self.running = False
+        self.is_connected = False
+        if self.serial_conn:
+            self.serial_conn.close()
+    
+    def send_command(self, command):
+        if self.is_connected and self.serial_conn:
+            try:
+                self.serial_conn.write((command + '\n').encode())
+                return True
+            except:
+                self.is_connected = False
+                return False
+        return False
+    
+    def read_data(self):
+        while self.running and self.is_connected:
+            try:
+                if self.serial_conn and self.serial_conn.in_waiting:
+                    line = self.serial_conn.readline().decode().strip()
+                    if line.startswith("DATA"):
+                        parts = line.split()
+                        if len(parts) >= 6:
+                            self.adc_data['chA'] = int(parts[2])
+                            self.adc_data['chB'] = int(parts[3])
+                            self.adc_data['voltA'] = float(parts[4])
+                            self.adc_data['voltB'] = float(parts[5])
+            except:
+                self.is_connected = False
+                break
+    
+    def move_motor(self, motor, position):
+        steps = int(position * 1000)
+        return self.send_command(f"MOVE {motor} {steps}")
+    
+    def get_position(self, motor):
+        if self.send_command(f"POS {motor}"):
+            return True
+        return False
 
 
 class HumeInterface(QWidget):
     def __init__(self):
         super().__init__()
+        self.teensy = TeensyComm()
+        self.connection_timer = QTimer()
+        self.connection_timer.timeout.connect(self.check_connection)
+        self.connection_timer.start(1000)
+        
         self.setup_ui()
         self.setup_styles()
+        self.connect_signals()
     
     def setup_ui(self):
         main_layout = QVBoxLayout()
@@ -149,15 +250,15 @@ class HumeInterface(QWidget):
         header_layout.addWidget(title)
         header_layout.addStretch()
         
-        status_indicator = QLabel("●")
-        status_indicator.setStyleSheet("color: #00ff88; font-size: 24px;")
-        status_label = QLabel("ONLINE")
-        status_label.setStyleSheet("color: #00ff88; font-size: 14px; font-weight: 600; letter-spacing: 1px;")
+        self.status_indicator = QLabel("●")
+        self.status_indicator.setStyleSheet("color: #ff4444; font-size: 24px;")
+        self.status_label = QLabel("OFFLINE")
+        self.status_label.setStyleSheet("color: #ff4444; font-size: 14px; font-weight: 600; letter-spacing: 1px;")
         
         status_layout = QVBoxLayout()
         status_layout.setAlignment(Qt.AlignCenter)
-        status_layout.addWidget(status_indicator)
-        status_layout.addWidget(status_label)
+        status_layout.addWidget(self.status_indicator)
+        status_layout.addWidget(self.status_label)
         
         header_layout.addLayout(status_layout)
         
@@ -201,6 +302,38 @@ class HumeInterface(QWidget):
         main_layout.addWidget(footer)
         
         self.setLayout(main_layout)
+        
+        self.set_controls_enabled(False)
+    
+    def connect_signals(self):
+        self.stage_x.valueChanged.connect(lambda val: self.move_stage(1, val))
+        self.stage_y.valueChanged.connect(lambda val: self.move_stage(2, val))
+        self.stage_z.valueChanged.connect(lambda val: self.move_stage(3, val))
+    
+    def move_stage(self, motor, position):
+        if self.teensy.is_connected:
+            self.teensy.move_motor(motor, position)
+    
+    def check_connection(self):
+        if not self.teensy.is_connected:
+            if self.teensy.connect():
+                self.status_indicator.setStyleSheet("color: #00ff88; font-size: 24px;")
+                self.status_label.setStyleSheet("color: #00ff88; font-size: 14px; font-weight: 600; letter-spacing: 1px;")
+                self.status_label.setText("ONLINE")
+                self.set_controls_enabled(True)
+        else:
+            if not self.teensy.find_teensy():
+                self.teensy.disconnect()
+                self.status_indicator.setStyleSheet("color: #ff4444; font-size: 24px;")
+                self.status_label.setStyleSheet("color: #ff4444; font-size: 14px; font-weight: 600; letter-spacing: 1px;")
+                self.status_label.setText("OFFLINE")
+                self.set_controls_enabled(False)
+    
+    def set_controls_enabled(self, enabled):
+        self.stage_x.setEnabled(enabled)
+        self.stage_y.setEnabled(enabled)
+        self.stage_z.setEnabled(enabled)
+        self.magnification.setEnabled(enabled)
     
     def setup_styles(self):
         self.setStyleSheet("""
@@ -228,8 +361,13 @@ class HumeWindow(QMainWindow):
         """)
     
     def setup_interface(self):
-        interface = HumeInterface()
-        self.setCentralWidget(interface)
+        self.interface = HumeInterface()
+        self.setCentralWidget(self.interface)
+    
+    def closeEvent(self, event):
+        if hasattr(self.interface, 'teensy'):
+            self.interface.teensy.disconnect()
+        event.accept()
 
 
 def main():

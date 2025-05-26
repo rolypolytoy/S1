@@ -96,5 +96,5 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 ## Checklist of What Remains
 Here's what I still need to implement:
 
-- ET Detector CAD & Misc details
-- Microcontroller & SEM operation logic
+- Complete misc details
+- Activate
