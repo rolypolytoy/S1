@@ -96,5 +96,5 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 ## Checklist of What Remains
 Here's what I still need to implement:
 
-- Housing CAD, and attachment mechanisms
+- ET Detector CAD & Misc details
 - Functioning code for the microcontroller to run on.
