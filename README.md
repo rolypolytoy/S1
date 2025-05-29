@@ -65,9 +65,9 @@ A 500 micrometer aperture as the condenser aperture at 60 mm and a 200 micromete
 
 We also need ~500m of 14 AWG aluminium wire which is either insulated or enameled, for as cheap as possible, which is roughly 14.5 USD, and definitely under 100
 
-Every exterior of the EM lens should be in 4 pieces, and the pole piece as 1. Design the CAD files of these next. Scanning coils (solenoid), stigmators (octupole), and alignment coils (quadrupole) also necessary using 14AWG Al wire and M19 cores where relevant.
+Every exterior of the EM lens should be in 4 pieces, and the pole piece as 1. Design the CAD files of these next. Scanning coils (solenoid), stigmators (octupole), and alignment coils (quadrupole) also necessary using 14AWG Al wire where relevant.
 
-For the yoke of the magnetic lenses we'll use soft iron, and for the pole piece we'll use Permalloy.
+For the yoke of the magnetic lenses we'll use electrical steel, and for the pole piece we'll use 99.95% iron (electropolished and nickelplated ofc).
 
 Make a singular CAD Assembly file with all details.
 
@@ -82,7 +82,7 @@ This is in the repo as ElectronColumn.FCStd, of course. All the sizes are exactl
   - **Stage platform**:
     - We use a cheap but micron-level accuracy open-loop stage by buying 3 instances of these [1-axis CNC stepper motor setups with 50 mm stroke length](https://ar.aliexpress.com/item/1005007308081154.html), combining it with three instances of the legendary [TM2209 motor driver](https://www.amazon.in/TESSERACT-TMC2209-V2-0-Ultra-Silent-Motherboard/dp/B08QPLL28G) which has 1/256 microstepping, which means we get micron-level resolution in XYZ. This is particularly important for beam clarity because this means we can use autofocus and vary the z-axis, instead of needing to vary the voltage to the objective lens, which makes our power electronics considerably simpler because we can just use static voltage dividers for all our high-voltage components and implement autofocus by modifying the z-axis and checking if the image is in-focus or out of focus. 
 
-In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for critical vacuum chamber bits sanding with 220 to 3000-grit), Polypropylene (via manual milling and lathing with up to 2000 grit), Soft Iron Yokes (via manual milling and lathing, surface finishing with 220 to 2000 grit), Pole Pieces from Permalloy (manual milling/lathing, then electropolishing). Before and after assembly clean everything with isopropyl then acetone, in a cleanroom-esque environment with nitrile gloves and basic PPE.
+In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for critical vacuum chamber bits sanding with 220 to 3000-grit), Polypropylene (via manual milling and lathing with up to 2000 grit), Soft Iron Yokes (via manual milling and lathing, surface finishing with 220 to 2000 grit), Pole Pieces from 99.95% iron (manual milling/lathing, then electropolishing then nickel plating). Before and after assembly clean everything with isopropyl then acetone, in a cleanroom-esque environment with nitrile gloves and basic PPE.
 
 ---
 
