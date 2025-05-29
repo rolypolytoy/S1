@@ -84,6 +84,8 @@ This is in the repo as ElectronColumn.FCStd, of course. All the sizes are exactl
 
 In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for critical vacuum chamber bits sanding with 220 to 3000-grit), Polypropylene (via manual milling and lathing with up to 2000 grit), Soft Iron Yokes (via manual milling and lathing, surface finishing with 220 to 2000 grit), Pole Pieces from 99.95% iron (manual milling/lathing, then electropolishing then nickel plating). Before and after assembly clean everything with isopropyl then acetone, in a cleanroom-esque environment with nitrile gloves and basic PPE.
 
+
+29/5/2025: I've ordered all of the components in the BOM. I've begun looking for the 500 meters of 14/16 AWG Aluminium wire and the CAD components. Stuff's coming together. I'll keep updating this when there's more progress on this end. From what I can tell, getting electropolishing and nickel plating isn't going to be particularly challenging and since our tolerances are more surface finishes than actual manufacturing tolerances it's going to be easy enough to do 'in house'.
 ---
 
 ## Development Timeline
@@ -91,7 +93,7 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 | Milestone                            | Target Date |
 |-------------------------------------|-------------|
 | Full design complete   | ✅ Q1 2025   |
-| **Release-ready version**           | 🟡 **Q2 2025** |
+| **Release-ready version (ON TARGET)**           | 🟡 **Q2 2025** |
 ---
 
 ---
