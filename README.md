@@ -87,7 +87,7 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 
 29/5/2025: I've begun looking for the 500 meters of 14/16 AWG Aluminium wire and the CAD components. Stuff's coming together. I'll keep updating this when there's more progress on this end. From what I can tell, getting electropolishing and nickel plating isn't going to be particularly challenging and since our tolerances are more surface finishes than actual manufacturing tolerances it's going to be easy enough to do 'in house'.
 
-30/5/2025: All the AgarScientific things (Silicone Oil for the diffusion pump, Thermionic W sources) and the Amazon items (>50% of all of the BOM) is ordered. Only the Mouser and AliExpress/Alibaba items remain, apart from materials. Still no sign of 3/4N iron or aluminum wire suppliers who sell at the relatively low quantities we need. Will keep updating.
+30/5/2025: Ordered every non-structural component, will see how things begin to come together. Ultimately, went easier than I expected. Thanks Agar Scientific, Mouser, Amazon, and AliExpress. Still need to find a supplier for 3N-4N soft iron and 500 meters of aluminum wire. I talked to a guy who sells the latter and he laughed me out for such a 'small quantity' asking me to get at least 50 kg (read: 10 km of wire) or not waste his time. You win some, you lose some. 
 
 ---
 
