@@ -93,6 +93,8 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 30/5/2025: Ordered every non-structural component, will see how things begin to come together. Ultimately, went easier than I expected. Thanks Agar Scientific, Mouser, Amazon, and AliExpress. Still need to find a supplier for 3N-4N soft iron and 500 meters of aluminum wire. I talked to a guy who sells the latter and he laughed me out for such a 'small quantity' asking me to get at least 50 kg (read: 10 km of wire) or not waste his time. You win some, you lose some. I'll provide updates as everything comes in.
 
 31/5/2025: Teensy 4.1's already arrived, as have a few other miscellaneous things. It's fortuitous it arrived so quickly because it means I can troubleshoot my setup and understand the flow of this MCU well. I already have an Arduino kit, I'll solder headers onto it and in general prepare for the full setup prematurely.
+
+Wire used: 16 AWG (bigger gauges don't fit inside).
 ---
 
 ## Development Timeline
