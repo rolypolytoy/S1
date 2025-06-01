@@ -5,7 +5,7 @@
 | Component | Description | Link | Cost (INR) |
 |-----------|-------------|------|------------|
 | Electron Gun | AEI AGA054 Tungsten Thermionic Filament (Package of 10) | [Agar Scientific](https://www.agarscientific.com/agar-filaments) | 10,560 |
-| High Voltage Power Supply | 230VAC 50W 10kVDC 5mA Power Supply (CX-50) | [AliExpress](https://ar.aliexpress.com/item/1005003518403820.html) | 1,200 |
+| High Voltage Power Supply | 2x 230VAC 50W 10kVDC 5mA Power Supply (CX-50) | [AliExpress](https://ar.aliexpress.com/item/1005003518403820.html) | 1,200 |
 | Low Voltage Power Supply | 60V 10A Adjustable Variable Converter 600W | [Amazon India](https://www.amazon.in/Adjustable-05-60Volt-Variable-Converter-600Watts/dp/B0F3KJ5VNP) | 4,999 |
 | Linear Stages | 3x Linear (XYZ) Stage with NEMA-11 Stepper Motors (50mm stroke, 1mm pitch) | [AliExpress](https://ar.aliexpress.com/item/1005007308081154.html) | 4,000 |
 | Beam Limiting Aperture | Platinum-Iridium 2mm OD, 100μm ID (Part No. 60100) | [Agar Scientific](https://www.agarscientific.com/tem/apertures/apertures-2-0-x-0-6mm-platinum-iridium) | 6,481 |
@@ -72,4 +72,4 @@
 
 ---
 
-## **TOTAL BOM COST: ₹105,819**
+## **TOTAL BOM COST (Parts Ordered): ₹105,819**
