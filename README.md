@@ -82,6 +82,9 @@ Non-exploded view of the frame with diffusion pump attached:
 
 ![image](https://github.com/user-attachments/assets/2bdacd55-febc-4bbf-9263-7d457ce1202e)
 
+View of all the analog & power electronics via a circuit schematic: 
+
+![Circuit](https://github.com/user-attachments/assets/b6a56f7b-11ab-403d-b466-1370241eb6ef)
 
 
 This is in the repo as Column.FCStd, of course. All the sizes are exactly as taken down to the mm from the paper, and I've made structural components for everything as well. The baseline weight of the frame is ~32 kg and if made of Al 6061 should cost on the order of $100, and the full frame w/sliding doors (metal to metal seal w/ambient air pressure pushing on it) is in Frame.FCStd.
