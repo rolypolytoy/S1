@@ -78,6 +78,11 @@ I've fully reconstructed the specs from the paper. Here's an exploded view of al
 
 ![image](https://github.com/user-attachments/assets/4a40d4dd-cda8-497b-803c-708da79b92bd)
 
+Non-exploded view of the frame with diffusion pump attached:
+
+![image](https://github.com/user-attachments/assets/2bdacd55-febc-4bbf-9263-7d457ce1202e)
+
+
 
 This is in the repo as Column.FCStd, of course. All the sizes are exactly as taken down to the mm from the paper, and I've made structural components for everything as well. The baseline weight of the frame is ~32 kg and if made of Al 6061 should cost on the order of $100, and the full frame w/sliding doors (metal to metal seal w/ambient air pressure pushing on it) is in Frame.FCStd.
       
