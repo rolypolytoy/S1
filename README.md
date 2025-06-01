@@ -49,6 +49,9 @@ The power supply comes from mains through a plug, and we have a [10kVDC](https:/
 
 I'll obviously use a blue LED on the photomultiplier-cremat-ADC setup to see if it works before assembling the ET detector.
 
+Some auxiliary setup information not in the CAD: 
+The first two condenser lenses must have 920 turns and the objective lens 600 turns in a solenoidal arrangement inside the housing. 
+
 The EE bit is done, all that remains is the embedded system code & companion app (Teensyduino and QT via PySide6, Pyintaller, PyUSB, PySERIAL on pypi respectively).
 
 
