@@ -74,10 +74,10 @@ For the yoke of the magnetic lenses we'll use electrical steel, and for the pole
 
 Make a singular CAD Assembly file with all details.
 
-I've fully reconstructed the specs from the paper:
-![image](https://github.com/user-attachments/assets/b0a0304c-8fe1-4417-b519-8f8921494e14)
+I've fully reconstructed the specs from the paper. Here's an exploded view of all the non-structural components- you can see the housing, pole pieces, Wehnelt caps etc etc:
+![image](https://github.com/user-attachments/assets/cafc3f0c-33f7-4cde-b22f-b1bb4daef6a8)
 
-This is in the repo as ElectronColumn.FCStd, of course. All the sizes are exactly as taken down to the mm from the paper, and I've made structural components for everything as well. The baseline weight of the frame is ~32 kg and if made of Al 6061 should cost on the order of $100, and the full frame w/sliding doors (metal to metal seal w/ambient air pressure pushing on it) is in Frame.FCStd.
+This is in the repo as Column.FCStd, of course. All the sizes are exactly as taken down to the mm from the paper, and I've made structural components for everything as well. The baseline weight of the frame is ~32 kg and if made of Al 6061 should cost on the order of $100, and the full frame w/sliding doors (metal to metal seal w/ambient air pressure pushing on it) is in Frame.FCStd.
       
   - **Cable feedthroughs**:
     -   Our current approach to making flanges is to, when the frame is being machined, make precise holes in the exterior, pass silicone wires through, and use vacuum-tolerant epoxy. This is expensive, but believe it or not, significantly less expensive than buying feedthroughs for 230VAC, 24VDC, USB, etc, etc. We use [Loctite Stycast-2850](https://in.rsdelivers.com/product/loctite/loctite-stycast-2850-ft-quartkit/loctite-loctite-stycast-2850-ft-quartkit-black-1/2349630)- a state of the art vacuum epoxy, which means this "makeshift" setup is actually more than satisfactory for HV, and really only gets iffy when you get down to UHV. Additionally- silicone doesn't outgas a lot, so using silicone-insulated wires isn't a no-no, but even if it is, taping over it with PTFE tape is an extremely easy (and cheap) workaround which doesn't compromise anything, or introduce any irregularities into the system.
