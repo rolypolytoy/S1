@@ -76,7 +76,8 @@ Make a singular CAD Assembly file with all details.
 
 I've fully reconstructed the specs from the paper. Here's an exploded view of all the non-structural components- you can see the housing, pole pieces, Wehnelt caps etc etc:
 
-![image](https://github.com/user-attachments/assets/cafc3f0c-33f7-4cde-b22f-b1bb4daef6a8)
+![image](https://github.com/user-attachments/assets/4a40d4dd-cda8-497b-803c-708da79b92bd)
+
 
 This is in the repo as Column.FCStd, of course. All the sizes are exactly as taken down to the mm from the paper, and I've made structural components for everything as well. The baseline weight of the frame is ~32 kg and if made of Al 6061 should cost on the order of $100, and the full frame w/sliding doors (metal to metal seal w/ambient air pressure pushing on it) is in Frame.FCStd.
       
