@@ -67,9 +67,11 @@
 | Component | Description | Link | Cost (INR) |
 |-----------|-------------|------|------------|
 | 3D Printing Filament | Polypropylene 3D Printer Filament | [Amazon India](https://www.amazon.in/WOL-3D-POLYPROPYLENE-printer-Filament/dp/B08PC3BNV9) | 3,000 |
+| Electromagnetic Wire | 20 AWG Enameled Copper "Magnet" Wire (500m) | [Amazon India](https://www.amazon.in/GREENARTZ%C2%AE-Enamelled-Electrical-Winding-Jewellery/dp/B09742PB87/)| 6,250 |
+| Soft Iron Core | 99.99% Pure Soft Iron Core, 40mm OD, 100mm Length | [AliExpress](https://ar.aliexpress.com/item/1005009149452245.html) | 3,900 |
 
-**Manufacturing Materials Subtotal: ₹3,000**
+**Manufacturing Materials Subtotal: ₹13,150**
 
 ---
 
-## **TOTAL BOM COST (Parts Ordered): ₹105,819**
+## **TOTAL BOM COST (Parts Ordered): ₹115,969**
