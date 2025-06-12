@@ -104,7 +104,7 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 
 31/5/2025: Teensy 4.1's already arrived, as have a few other miscellaneous things. It's fortuitous it arrived so quickly because it means I can troubleshoot my setup and understand the flow of this MCU well. I already have an Arduino kit, I'll solder headers onto it and in general prepare for the full setup prematurely.
 
-Wire used: 16 AWG (bigger gauges don't fit inside).
+12/6/2025: Several things have arrived. All the 3D printed parts are fabricated to within tolerances. The 10kV HV sources have also arrived, as have the ADC, DAC, SiPM, and Cremat signals processing modules. Still no electrical steel, but we've found a supplier for 500 meters of copper wire and ~200 meters have already arrived, with 300 more to go. Soft iron's also found (4N, from AliExpress once more). Progress is progressing.
 ---
 
 ## Development Timeline
