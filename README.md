@@ -119,7 +119,6 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 ---
 
 ---
-## Checklist of What Remains
-Here's what I still need to implement:
+## Assembly Instructions
 
-- Machine it and get it functioning
+I'll update this with photos and instructions the further I get along in the process.
