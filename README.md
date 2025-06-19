@@ -122,3 +122,8 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 ## Assembly Instructions
 
 I'll update this with photos and instructions the further I get along in the process.
+
+3D printed parts:
+
+![1000135306](https://github.com/user-attachments/assets/020caf3e-acb4-474d-b333-ca8ebe55a649)
+
