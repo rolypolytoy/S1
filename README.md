@@ -1,6 +1,6 @@
 # S1 Desktop SEM
 
-S1 is an open-source, low-cost, high-performance scanning electron microscope (SEM) project, because why not?
+S1 is an open-source, low-cost, high-performance scanning electron microscope (SEM) project, which doubles as a reasonably accurate e-beam lithography machine, because why not?
 
 | Metric            | Estimated     | Achieved | Method                  |
 | ----------------- | ---------- | -------- | ----------------------- |
@@ -120,3 +120,4 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 Here's what I still need to implement:
 
 - Machine it and get it functioning
+- Get e-beam lithography tested and functional to <25 nm resolution.
