@@ -105,6 +105,9 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 31/5/2025: Teensy 4.1's already arrived, as have a few other miscellaneous things. It's fortuitous it arrived so quickly because it means I can troubleshoot my setup and understand the flow of this MCU well. I already have an Arduino kit, I'll solder headers onto it and in general prepare for the full setup prematurely.
 
 12/6/2025: Several things have arrived. All the 3D printed parts are fabricated to within tolerances. The 10kV HV sources have also arrived, as have the ADC, DAC, SiPM, and Cremat signals processing modules. Still no electrical steel, but we've found a supplier for 500 meters of copper wire and ~200 meters have already arrived, with 300 more to go. Soft iron's also found (4N, from AliExpress once more). Progress is progressing.
+
+19/6/2025: We're using soft iron ingots and melting and casting them, so the final supplier issue (on the materials side) is done, and we're officially to assembly. Like a hydra though, there's another issue- the Cremat CR-113 hasn't shipped and they've refunded it, and only the CR-200-500ns has shipped. So we're going to have to make a CSA with an op-amp in a differentiator setup in an SIP package. Doable with KiCAD, and it'll honestly be lower cost and higher perf, so I'm glad it happened. Maybe I'll remake the CSA + pulse shaper in one package, or make a full MCU + signals processing PCB instead of the whole Teensy, DAC, ADC, SiPM, signals processing as modules thing. For a prototype a difficult setup is fine but for production, definitely not. In more good news though- DRDO's [SSPL](https://www.drdo.gov.in/drdo/labs-and-establishments/solid-state-physics-laboratory-sspl), a SOTA government research laboratory in materials science, and Miranda House from Delhi University, are tentatively going to be beta-testers for it when the prototype is assembled, so there's already some steady footing in that direction.
+
 ---
 
 ## Development Timeline
@@ -116,8 +119,13 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 ---
 
 ---
-## Checklist of What Remains
-Here's what I still need to implement:
+## Assembly Instructions
+
+I'll update this with photos and instructions the further I get along in the process.
+
+3D printed parts:
+
+![1000135306](https://github.com/user-attachments/assets/020caf3e-acb4-474d-b333-ca8ebe55a649)
 
 - Machine it and get it functioning
 - Get e-beam lithography tested and functional to <25 nm resolution.
