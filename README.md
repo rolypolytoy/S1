@@ -117,7 +117,7 @@ In-House Manufacturing for Al 6061 parts (via manual milling and lathes, for cri
 | Milestone                            | Target Date |
 |-------------------------------------|-------------|
 | Full design complete   | ✅ Q1 2025   |
-| **Release-ready version**           | 🟡 **July 2025** |
+| **Release-ready version (BEHIND TARGET!!!! WE NEED TO GRIND!!!!!!!!)**           | 🟡 **Q2 2025** |
 ---
 
 ---
