@@ -24,6 +24,7 @@
 | Cooling Fan | Delta Electronics 240 CFM Server Fan (120x120x38mm) | [Amazon India](https://www.amazon.in/Delta-Electronics-AFB1212GHE-CF00-120x120x-connector/dp/B004X2M2GG) | 9,390 |
 | Silicone Oil | KJLC 704 Vacuum Diffusion Pump Fluid | [Agar Scientific](https://www.agarscientific.com/vacuum-diffusion-pump-fluids) | 13,000 |
 | Viton Strips | Viton Rubber Strip (1m Length, 2mm Thickness) | [Amazon India](https://www.amazon.in/Rubber-Strip-Length-Thickness-Backing/dp/B0BL5PBXGG) | 2,900 |
+| KF Flanges | KF-25 Aluminum Quick Clamp Vacuum Fittings Set | [Ubuy India](https://www.ubuy.co.in/product/6L1JO7TS-kf-25-aluminum-quick-clamp-kf25-flage-size-nw-25-quick-flange-clamp-with-wing-nut-closure-centering-)
 
 **Vacuum System Subtotal: ₹26,629**
 
