@@ -18,7 +18,7 @@ S1 is an open-source, low-cost, high-performance scanning electron microscope (S
 
 Most pumps of this kind have an around 1/4th inch diameter outlet, and so you can buy 1/4th inch ID [vinyl tubing](https://www.amazon.com/Flexible-Lightweight-Plastic-Chemical-Resistant/dp/B09Y5R8SSL). 
 
-Finally- FCStd files for the Diffusion Pump are uploaded [here](https://github.com/rolypolytoy/S1/blob/main/Vacuum%20Integrity) and at the [Diffusion Pump](https://github.com/rolypolytoy/diffusion_pump) project. It's already built to be integrated with 1/4th inch vinyl pipes, so simply slip the pipe around the machined diffusion pump. 
+Finally- FCStd files for the Diffusion Pump are uploaded [here](https://github.com/rolypolytoy/S1/blob/main/Vacuum%20Integrity) and at the [Diffusion Pump](https://github.com/rolypolytoy/diffusion_pump) project. It's already built to be integrated with 1/4th inch vinyl pipes, so simply slip the pipe around the machined diffusion pump. We also use KF25 flanges and conventional water cooling with a pump, to ensure it stays cold.
 
 For the O-ring, buy 130 mm ID, 2 mm thickness [Nitrile O-rings](https://www.amazon.com/uxcell-Rings-Nitrile-125-2mm-Diameter/dp/B07HGCCHNZ) to seal the flange between the diffusion pump and the connector to the vacuum pump.
 
